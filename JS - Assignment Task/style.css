@@ -1,0 +1,39 @@
+section{
+  max-width: 800px;
+  padding: 20px;
+  margin: auto;
+  background-color: #f0f0f0;
+}
+
+h1{
+  color: #9fba29;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+input{
+  padding: 12px;
+  border: 0;
+}
+
+input:focus{
+  border: 0;
+}
+
+button{
+  border: 0;
+  cursor: pointer;
+  min-width: 100px;
+  font-weight: bold;
+  padding: 12px 10px;
+  background-color: #9fba29;
+}
+
+.text-right{
+  text-align: right;
+}
+
+textarea{
+  width: 200px;
+  height: 200px;
+}

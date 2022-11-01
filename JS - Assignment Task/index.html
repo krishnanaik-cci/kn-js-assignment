@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS - Assignment Tasks Implementation</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+  <section id="section-one">
+    <h1>Section 1</h1>
+
+    <!-- Task 1 :Calculate Age in Days -->
+    <h2>Task 1 :Calculate Age in Days</h2>
+    <label>Enter age: </label><br>
+    <input type="number" class="input" id="age-in-days-input" /><button type="button"
+      onclick="calcAgeInDays()">Submit</button>
+    <h4>Result: <span id="age-in-days-result">-</span></h4>
+
+    <hr>
+    <!-- Task 2 :Calculate Age in Seconds -->
+    <h2>Task 2 :Calculate Age in Seconds</h2>
+    <label>Enter age: </label><br>
+    <input type="number" class="input" id="age-in-seconds-input" /><button type="button"
+      onclick="calcAgeInSeconds()">Submit</button>
+    <h4>Result: <span id="age-in-seconds-result">-</span></h4>
+
+    <hr>
+    <!-- Task 3 : Buggy Cod -->
+    <h2>Task 3 : Buggy Code</h2>
+    <label>Get cube of a number: </label><br>
+    <input type="number" class="input" id="get-cube-input" /><button type="button" onclick="cubes()">Submit</button>
+    <h4>Result: <span id="get-cube-result">-</span></h4>
+
+    <hr>
+
+    <!-- Task 4 :Reversing a String -->
+    <h2>Task 4 :Reversing a String</h2>
+    <label>Enter string to reverse: </label><br>
+    <input type="text" class="input" id="reverse-string-input" /><button type="button"
+      onclick="reversStr()">Submit</button>
+    <h4>Result: <span id="reverse-string-result">-</span></h4>
+
+    <hr>
+
+    <!-- Task 6 : How many Seconds in hours -->
+    <h2>Task 6 : How many Seconds in hours</h2>
+    <label>Enter string to reverse: </label><br>
+    <input type="text" class="input" id="seconds-in-hours-input" /><button type="button"
+      onclick="howManySeconds()">Submit</button>
+    <h4>Result: <span id="seconds-in-hours-result">-</span></h4>
+
+    <!-- Task 8 : Number exists in array -->
+    <h2>Task 8 : Number exists in array</h2>
+    <label>Enter values in array1: </label><br>
+    <input type="text" id="arr1-input" onkeypress="checkNumAndComma(event)" placeholder="1,20,3,40,12.." />
+    <p><b>Array1</b>: <span id="array1-values"></span></p>
+
+    <label>Enter values in array2: </label><br>
+    <input type="text" id="arr2-input" onkeypress="checkNumAndComma(event)" placeholder="1,20,3,40,12.." />
+    <p><b>Array2</b>: <span id="array2-values"></span></p>
+
+    <label>Enter a value to find in the arrays: </label><br>
+    <input type="number" id="find-value-input" />
+
+    <button type="button"
+      onclick="isNumberPresent()">Submit</button>
+      <h4>Result: <span id="num-exist-in-arr-input">-</span></h4>
+  </section>
+
+  <br>
+  <!-- section 2 -->
+  <section id="section-two">
+     <h1>Section 2</h1>
+     <!-- Task 10 : Analyze JSON -->
+     <h2>Task 10 : Analyze JSON</h2>
+     <p>Enter code in below format</p>
+     <pre>
+      {
+        "name": "keith",
+        "age": 20,
+        "mobile": "9876543210"
+      }
+     </pre>
+     <br>
+     <label>Enter JSON string value: </label><br>
+     <textarea class="input" id="analyze-json-input"></textarea>
+     <br>
+     <button type="button"
+       onclick="analyzeJson()">Submit</button>
+     <h4>Result: <span id="analyze-json-result">-</span></h4>
+  </section>
+
+
+  <!-- custom script -->
+  <script src="./app.js"></script>
+</body>
+
+</html>
