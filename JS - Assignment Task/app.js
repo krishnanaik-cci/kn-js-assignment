@@ -123,7 +123,7 @@ for (let i = 0; i < 5; i++) {
 
 // Task 8 : Number exists in array
 const isNumberPresent = () => {
-  if (arr1Input.value != "" && arr2Input.value != "") {
+  if (arr1Input.value != "" && arr2Input.value != "" && findValueInput.value != "") {
     let valueInArr1;
     let valueInArr2;
     document.getElementById("array1-values").textContent =
@@ -171,12 +171,12 @@ const isNumberPresent = () => {
         "</b> was not found in both the arrays</p>";
     }
   } else {
-    alert("Please enter value for both the arrays");
+    alert("Please enter value for both the arrays and a value to find in the arrays");
   }
 };
 
 //Task 9: Analyze Json
-function analyzeJson() {
+const analyzeJson = () => {
   let newStr = document.getElementById("analyze-json-input").value.replaceAll(" ", "").toLowerCase().trim();
   try {
     JSON.parse(newStr);
@@ -208,7 +208,7 @@ function analyzeString(str) {
 }
 */
 
-const analyzeString_secondApproach = (str) => {
+const analyzeStringSecondApproach = (str) => {
   let arr = str.replaceAll(" ", "").toLowerCase();
   let uniqStr = "";
   // console.log("arr = " + arr + " Target = " + targetInput.value);
@@ -235,6 +235,7 @@ const analyzeString_secondApproach = (str) => {
 const sumOfTwoNos = () => {
   let arr = sumOfTwoNoInput.value.split(",");
   console.log("arr = " + arr + " Target = " + targetInput.value);
+  if(arr.length > 1){
   for (let i = 0; i < arr.length; i++) {
     for (let j = i + 1; j < arr.length; j++) {
       let sum = parseInt(arr[i]) + parseInt(arr[j]);
@@ -246,6 +247,9 @@ const sumOfTwoNos = () => {
         sumOfTwoNoRes.textContent = "No result found";
       }
     }
+  }
+  }else{
+    alert("Please enter one more value in array");
   }
 };
 
@@ -269,24 +273,23 @@ const checkNumAndComma = (e) => {
   }
 };
 
-function ingExtractor() {
-  // return str.replace(/[^a-zA-Z ]/g, "").split(" ");//replace any characters to "" that is from a-z and A-Z and space 
-  // finds all the characters that are not part of the a-zA-Z pattern and replaces with empty ""
+const ingExtract = ingExtractor = () => {
+  if(ingExtractionInput.value != "" && isNaN(ingExtractionInput.value) && ingExtractionInput.value.match(/^[a-zA-Z_ ,]*$/)){
   let result = ingExtractionInput.value.replace(/[^a-zA-Z ]/g, "").split(" ").filter((word) => {
-    // ingExtractor("coming bringing Letting sing") ➞ ["coming", "bringing", "Letting"]
-    // ingExtractor("going Ping, king sHrink dOing") ➞ ["going",, "dOing"]
-    // ingExtractor("zing went ring, ding wing SINk") ➞ []
-      let temp = word.toLowerCase().replace("ing", "");//com, bring, lett, s
-      console.log(temp+' replaces =  '+'/[aeiou]/g = '+ temp.replace(/[aeiou]/g, ""));
+      let temp = word.toLowerCase().replace("ing", "");
       if (temp.length === temp.replace(/[aeiou]/g, "").length) {
         return false;
       }
-      // returns the word that have ing even after removing one ing from a string
-      // which means it returns the word with multiple syllabel
       if (word.toLowerCase().includes("ing")) {
         return true;
       }
     });
-    ingExtractionRes.textContent = "["+result+"]";
+    if(result.length >= 1){
+      ingExtractionRes.textContent = "["+result+"]";
+    }else{
+      ingExtractionRes.textContent = "No result found"
+    }
+  }else{
+    alert("Please enter a string value");
+  }
 }
-// alert(ingExtractor("zing went ring, ding wing SINk"));
