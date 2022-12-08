@@ -1,7 +1,8 @@
 /*------------------------------------
 Task-5: Sum of 2 Numbers
 -------------------------------------
-Created By: Krishna Naik Created Date: 16-Nov-2022
+Created By: Krishna Naik 
+Created Date: 16-Nov-2022
 -------------------------------------*/
 const sumOf = (arr) => {
   let target = document.getElementById("sumTarget").value;

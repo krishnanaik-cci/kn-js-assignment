@@ -1,7 +1,8 @@
 /*------------------------------------
 Task-6: Number exists in array
 -------------------------------------
-Created By: Krishna Naik Created Date: 6-Dec-2022
+Created By: Krishna Naik 
+Created Date: 8-Dec-2022
 -------------------------------------*/
 const isNumberPresent = (arr1, arr2) => {
   if (validateForCompleteArr(arr1, arr2)) {
