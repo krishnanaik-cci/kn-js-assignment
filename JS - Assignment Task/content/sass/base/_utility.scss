@@ -1,0 +1,142 @@
+
+.text-green {
+  color: $green-100;
+}
+
+.bg-green{
+  background-color: $green-100;
+}
+
+// font size utility
+.fs-40 {
+  font-size: calculateRem(40px) !important;
+}
+
+.fs-12 {
+  font-size: calculateRem(12px) !important;
+}
+
+.fs-14 {
+  font-size: calculateRem(14px) !important;
+}
+
+.fs-16 {
+  font-size: calculateRem(14px) !important;
+}
+
+.fs-18 {
+  font-size: calculateRem(18px) !important;
+}
+
+.fs-lg-18 {
+  @include media-breakpoint-up(lg) {
+    font-size: calculateRem(18px) !important;
+  }
+}
+
+.fs-22 {
+  font-size: calculateRem(22px) !important;
+}
+
+.fs-40 {
+  font-size: calculateRem(40px) !important;
+}
+
+.fs-md-65 {
+  @include media-breakpoint-up(md) {
+    font-size: calculateRem(65px) !important;
+  }
+}
+
+// line height utility
+.line-height-17 {
+  @include line-height(17px);
+}
+
+.line-height-lg-24 {
+  @include media-breakpoint-up(lg) {
+    line-height: 1.5rem !important;
+  }
+}
+
+.line-height-36 {
+  @include line-height(36px);
+}
+
+.line-height-18 {
+  @include line-height(18px);
+}
+
+.line-height-lg-15 {
+  @include media-breakpoint-up(lg) {
+    @include line-height(15px);
+  }
+}
+
+.pr-md-20 {
+  @include media-breakpoint-up(md) {
+    padding-right: 20px !important;
+  }
+}
+
+.pl-md-20 {
+  @include media-breakpoint-up(md) {
+    padding-left: 20px !important;
+  }
+}
+
+.pb-20 {
+  padding-bottom: 20px;
+}
+
+.pt-md-18 {
+  @include media-breakpoint-up(md) {
+    padding-top: 18px;
+  }
+}
+
+.pt-md-32 {
+  @include media-breakpoint-up(md) {
+    padding-top: 32px;
+  }
+}
+// margin utility
+.mb-lg-18 {
+  @include media-breakpoint-up(lg) {
+    margin-bottom: 18px !important;
+  }
+}
+
+.mb-12 {
+  margin-bottom: 12px;
+}
+
+.mb-24 {
+  margin-bottom: 24px;
+}
+
+.mb-28 {
+  margin-bottom: 28px;
+}
+
+.mb-32 {
+  margin-bottom: 32px;
+}
+
+.mb-lg-19 {
+  @include media-breakpoint-up(lg) {
+    margin-bottom: 19px !important;
+  }
+}
+
+.d-xs-450-none{
+@include media-breakpoint-up(xs-450){
+  display: none;
+}
+}
+
+.d-xxl-block{
+  @include media-breakpoint-up(xxl){
+    display: block !important;
+  }
+}

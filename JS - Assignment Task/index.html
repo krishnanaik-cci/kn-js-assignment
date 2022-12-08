@@ -1,96 +1,224 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JS - Assignment Tasks Implementation</title>
-  <link rel="stylesheet" href="./style.css" />
+  <!-- charset meta tag -->
+  <meta charset="UTF-8" />
+  <!-- / charset meta tag -->
+  <!-- http-equiv meta tag -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- / http-equiv meta tag -->
+  <!-- keywords meta tag -->
+  <meta name="keywords" content="JS Assingment" />
+  <!-- / keywords meta tags -->
+  <!-- description meta tag -->
+  <meta name="description" content="JS Assingment" />
+  <!-- / description meta tag -->
+  <!-- viewport meta tag -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- / viewport meta tag -->
+  <title>Home</title>
+  <!-- bootstrap css -->
+  <link rel="stylesheet" href="./content/css/bootstrap.min.css" />
+  <!-- custom stylesheet -->
+  <link rel="stylesheet" href="./content/css/styles.min.css" />
+  <!-- / custom stylesheet -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+
 <body>
-  <section id="section-one">
-    <h1>Section 1</h1>
-    <!-- Task 1 :Calculate Age in Days -->
-    <h2>Task 1 :Calculate Age in Days</h2>
-    <label>Enter age: </label><br>
-    <input type="number" class="input" id="age-in-days-input" /><button type="button"
-      onclick="calcAgeInDays()">Submit</button>
-    <h4>Result: <span id="age-in-days-result">-</span></h4>
-    <hr>
-    <!-- Task 2 :Calculate Age in Seconds -->
-    <h2>Task 2 :Calculate Age in Seconds</h2>
-    <label>Enter age: </label><br>
-    <input type="number" class="input" id="age-in-seconds-input" /><button type="button"
-      onclick="calcAgeInSeconds()">Submit</button>
-    <h4>Result: <span id="age-in-seconds-result">-</span></h4>
-    <hr>
-    <!-- Task 3 : Buggy Code -->
-    <h2>Task 3 : Buggy Code</h2>
-    <label>Get cube of a number: </label><br>
-    <input type="number" class="input" id="get-cube-input" /><button type="button" onclick="cubes()">Submit</button>
-    <h4>Result: <span id="get-cube-result">-</span></h4>
-    <hr>
-    <!-- Task 4 :Reversing a String -->
-    <h2>Task 4 :Reversing a String</h2>
-    <label>Enter string to reverse: </label><br>
-    <input type="text" class="input" id="reverse-string-input" /><button type="button"
-      onclick="reversStr()">Submit</button>
-    <h4>Result: <span id="reverse-string-result">-</span></h4>
-    <hr>
-    <!-- Task 5 : Sum of 2 Numbers In Progress -->
-    <h2>Task 5 : Sum of 2 Numbers</h2>
-    <label>Enter values in array: </label><br>
-    <input type="text" id="sum-of-two-no-input" onkeypress="checkNumAndComma(event)" placeholder="1,20,3,40,12.." />
-    <p><b>Array1</b>: <span id="array1-values"></span></p>
-    <label>Enter target value: </label><br>
-    <input type="text" id="sum-target-input" onkeypress="checkNumAndComma(event)" placeholder="10" />
-    <button type="button" onclick="sumOfTwoNos()">Submit</button>
-    <h4>Result: <span id="sum-of-two-no-res">-</span></h4>
-  </section>
-  <br>
-  <section class="section-two">
-        <h1>Section 2</h1>
-        <!-- Task 6 : How many Seconds in hours -->
-        <h2>Task 6 : How many Seconds in hours</h2>
-        <label>Enter string to reverse: </label><br>
-        <input type="text" class="input" id="seconds-in-hours-input" /><button type="button"
-          onclick="howManySeconds()">Submit</button>
-        <h4>Result: <span id="seconds-in-hours-result">-</span></h4>
-        <!-- task 7 on hold -->
-        <!-- Task 8 : Number exists in array -->
-        <h2>Task 8 : Number exists in array</h2>
-        <label>Enter values in array1: </label><br>
-        <input type="text" id="arr1-input" onkeypress="checkNumAndComma(event)" placeholder="1,20,3,40,12.." />
-        <p><b>Array1</b>: <span id="array1-values"></span></p>
-        <label>Enter values in array2: </label><br>
-        <input type="text" id="arr2-input" onkeypress="checkNumAndComma(event)" placeholder="1,20,3,40,12.." /><br><br>
-        <label>Enter a value to find in the arrays: </label><br>
-        <input type="number" id="find-value-input" />
-        <button type="button" onclick="isNumberPresent()">Submit</button>
-        <h4>Result: <span id="num-exist-in-arr-input">-</span></h4>
-        <!-- Task 10 : Analyze json -->
-        <h2>Task 10 : Analyze JSON</h2>
-        <label>Enter values in JSON format: </label><br>
-        <textarea id="analyze-json-input"></textarea>
-        <!-- <p><b>Array1</b>: <span id="array1-values"></span></p> -->
-        <!-- <label>Enter values in array2: </label><br>
-        <input type="text" id="arr2-input" onkeypress="checkNumAndComma(event)" placeholder="1,20,3,40,12.." />
-        <p><b>Array2</b>: <span id="array2-values"></span></p> -->
-        <br>
-        <button type="button" onclick="analyzeJson()">Submit</button>
-        <!-- <h4>Result: <span id="num-exist-in-arr-input">-</span></h4> -->
-  </section>
-  <br>
-  <section class="section-three">
-    <h1>Section 3</h1>
-     <!-- Task 16 :Extracting words with "ing" Inflection -->
-     <h2>Task 16 :Extracting words with "ing" Inflection</h2>
-     <label>Enter a String:</label><br>
-     <input type="text" class="input" id="ing-extraction-input" /><button type="button"
-       onclick="ingExtractor()">Submit</button>
-     <h4>Result: <span id="ing-extraction-res">-</span></h4>
-  </section>
-  <!-- custom script -->
-  <script src="./app.js"></script>
+
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-green">
+      <a class="navbar-brand text-white" href="javascript:void(0)">JS Assingment 1</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </nav>
+  </header>
+
+  <div class="container my-5">
+    <nav>
+      <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <!-- Section 1 tab -->
+        <button class="nav-link active" id="nav-home-tab" data-toggle="tab" data-target="#nav-home" type="button"
+          role="tab" aria-controls="nav-home" aria-selected="true">Section 1</button>
+
+        <!-- Section 2 tab -->
+        <button class="nav-link" id="nav-profile-tab" data-toggle="tab" data-target="#nav-profile" type="button"
+          role="tab" aria-controls="nav-profile" aria-selected="false">Section 2</button>
+
+        <!-- Section 3 tab -->
+        <button class="nav-link" id="nav-contact-tab" data-toggle="tab" data-target="#nav-contact" type="button"
+          role="tab" aria-controls="nav-contact" aria-selected="false">Section 3</button>
+      </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+      <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+
+        <!-- problem cards -->
+        <div class="row row-cols-3">
+
+          <!-- Task 1 :Calculate Age in Days -->
+          <div class="col" id="task1Wrapper">
+            <div class="card rounded-0">
+              <div class="card-header bg-green rounded-0 font-weight-bold">
+                Task 1: Calculate Age in Days
+              </div>
+              <div class="card-body">
+                <div class="form-group">
+                  <label>Enter Age</label>
+                  <input type="number" min="0" class="form-control numberInput" id="calcAgeInDaysInput"
+                    data-target="task1Wrapper">
+                </div>
+                <button type="submit" class="btn btn-primary" id="calcAgeInDaysBtn" disabled>Submit</button>
+                <div id="task1AlertWrapper"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Task 2 :Calculate Age in Seconds -->
+          <div class="col" id="task2Wrapper">
+            <div class="card rounded-0">
+              <div class="card-header bg-green rounded-0 font-weight-bold">
+                Task 2: Calculate Age in Seconds
+              </div>
+              <div class="card-body">
+                <div class="form-group">
+                  <label>Enter Age</label>
+                  <input type="number" class="form-control numberInput" id="calcAgeInSecsInput"
+                    data-target="task2Wrapper">
+                </div>
+                <button type="submit" class="btn btn-primary" id="calcAgeInSecsBtn" disabled>Submit</button>
+                <div id="task2AlertWrapper"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Task 3 : Buggy Code -->
+          <div class="col" id="task3Wrapper">
+            <div class="card rounded-0">
+              <div class="card-header bg-green rounded-0 font-weight-bold">
+                Task 3: Buggy Code
+              </div>
+              <div class="card-body">
+                <div class="form-group">
+                  <label>Enter Number</label>
+                  <input type="number" class="form-control numberInput" id="getCube" data-target="task3Wrapper">
+                </div>
+                <button type="submit" class="btn btn-primary" id="buggyCodeBtn" disabled>Submit</button>
+                <div id="task3AlertWrapper"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Task 4 :Reversing a String -->
+          <div class="col" id="task4Wrapper">
+            <div class="card rounded-0">
+              <div class="card-header bg-green rounded-0 font-weight-bold">
+                Task 4: Reversing a String
+              </div>
+              <div class="card-body">
+                <div class="form-group">
+                  <label>Enter a String</label>
+                  <input type="text" class="form-control onlyStringInput" id="revStringInput"
+                    data-target="task4Wrapper">
+                </div>
+                <button type="submit" class="btn btn-primary" id="reversStr" disabled>Submit</button>
+                <div id="task4AlertWrapper"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Task 5 : Sum of 2 Numbers -->
+          <div class="col" id="task5Wrapper">
+            <div class="card rounded-0">
+              <div class="card-header bg-green rounded-0 font-weight-bold">
+                Task 5: Sum of 2 Numbers
+              </div>
+              <div class="card-body">
+                <div class="form-group">
+                  <label>Enter Numbers With Comma</label>
+                  <input type="text" class="form-control numArrayInput mb-2" id="sumOf2NumInput" placeholder="10, 20, 30..."
+                    data-target="task5Wrapper">
+                  <label>Enter Target Number</label>
+                  <input type="number" class="form-control numberInput" id="sumTarget" data-target="task5Wrapper">
+                </div>
+                <button type="submit" class="btn btn-primary" id="sumOf2NumBtn" disabled>Submit</button>
+                <div id="task5AlertWrapper"></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- tab 2 -->
+      <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+
+        <!-- problem cards -->
+        <div class="row row-cols-3">
+
+          <!-- Task 6 : How many Seconds in hours -->
+          <div class="col" id="task6Wrapper">
+            <div class="card rounded-0">
+              <div class="card-header bg-green rounded-0 font-weight-bold">
+                Task 6: How many Seconds in hours
+              </div>
+              <div class="card-body">
+                <div class="form-group">
+                  <label>Enter Hours</label>
+                  <input type="number" class="form-control numberInput" id="calcSecsInHoursInput"
+                    data-target="task6Wrapper">
+                </div>
+                <button type="submit" class="btn btn-primary" id="calcSecsInHoursBtn" disabled>Submit</button>
+                <div id="task6AlertWrapper"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Task 8 : Number exists in array -->
+          <div class="col" id="task8Wrapper">
+            <div class="card rounded-0">
+              <div class="card-header bg-green rounded-0 font-weight-bold">
+                Task 8: Number exists in array
+              </div>
+              <div class="card-body">
+                <div class="form-group">
+                  <label>Enter Numbers With Comma for array1</label>
+                  <input type="text" class="form-control numArrayInput mb-2" id="task8ArrInput1" placeholder="10, 20, 30..."
+                    data-target="task8Wrapper">
+                  <label>Enter Numbers With Comma for array2</label>
+                  <input type="text" class="form-control numArrayInput mb-2" id="task8ArrInput2" placeholder="10, 20, 30..."
+                      data-target="task8Wrapper">
+                  <label>Enter a number to search in the arrays</label>
+                  <input type="number" class="form-control numberInput" id="findValue" data-target="task8Wrapper">
+                </div>
+                <button type="submit" class="btn btn-primary" id="searchForNumInArraysBtn" disabled>Submit</button>
+                <div id="task8AlertWrapper"></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- tab 3 -->
+      <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">Section 3</div>
+    </div>
+  </div>
+  <footer>
+  </footer>
+  <!-- jquery.min.js -->
+  <script src="./content/scripts/jquery.min.js"></script>
+  <!-- bootstrap.min.js -->
+  <script src="./content/scripts/bootstrap.min.js"></script>
+  <!-- custom script.min.js -->
+  <script src="./content/scripts/include.js"></script>
+  <script src="./content/scripts/ui/ui.js" type="module"></script>
+  <script src="./content/scripts/main.js" type="module"></script>
 </body>
+
 </html>

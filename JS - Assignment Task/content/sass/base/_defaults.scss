@@ -1,0 +1,9 @@
+body {
+  color: $blue-100;
+  background-color: $gray;
+  font-family: $font-family-oswald;
+  .container {
+    @include make-container();
+    @include make-container-max-widths($container-max-widths, $grid-breakpoints);
+  }
+}

@@ -1,0 +1,22 @@
+.card {
+  @include radius(0);
+  &-header {
+    color: $white;
+    background-color: $green-100;
+    &:first-child {
+      @include radius(0);
+    }
+  }
+  &-body {
+    border: 1px solid $green-100;
+  }
+  margin-bottom: 20px;
+
+  .alert {
+    .close {
+      position: absolute;
+      right: 5px;
+      top: 0;
+    }
+  }
+}

@@ -1,0 +1,17 @@
+.btn {
+  border: 0;
+  padding: 8px 25px;
+  @include radius(0);
+
+  &-primary{
+    background-color: $green-100;
+    // add green color to all the buttons who are not disabled
+    &:hover, &:disabled{
+      background-color: $green-200;
+    }
+    &:focus{
+      background-color: $green-200;
+      @include box-shadow(0 0 0 0.2rem rgba(159, 186, 41, .50));
+    }
+  }
+}

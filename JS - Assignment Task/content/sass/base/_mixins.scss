@@ -1,0 +1,646 @@
+@mixin font-size($size) {
+    font-size: calculateRem($size);
+}
+
+@mixin line-height($line-height) {
+    line-height: ($line-height / 16px) * 1rem;
+}
+@mixin transform($value) {
+    transform: $value;
+    -moz-transform: $value;
+    -webkit-transform: $value;
+}
+
+@mixin clip-path($value){
+    clip-path: $value;
+}
+
+@mixin text-shadow($value) {
+    text-shadow: $value;
+    -moz-text-shadow: $value;
+    -webkit-text-shadow: $value;
+}
+
+
+@mixin box-shadow($value) {
+    box-shadow: $value;
+    -moz-box-shadow: $value;
+    -webkit-box-shadow: $value;
+}
+
+@mixin multiple-box-shadow($value, $value2) {
+    box-shadow: $value, $value2;
+    -moz-box-shadow: $value, $value2;
+    -webkit-box-shadow: $value, $value2;
+}
+
+@mixin rotate($deg) {
+    transform: rotate($deg);
+    -moz-transform: rotate($deg);
+    -webkit-transform: rotate($deg);
+}
+
+@mixin transform-origin($val) {
+    transform-origin: $val;
+    -webkit-transform-origin: $val;
+    -moz-transform-origin: $val;
+}
+
+@mixin transition($value) {
+    transition: $value;
+    -moz-transition: $value;
+    -webkit-transition: $value;
+}
+
+@mixin display-flex() {
+    display: flex;
+    -moz-display: flex;
+    -webkit-display: flex;
+}
+
+@mixin display-inline-flex() {
+    display: inline-flex;
+    -moz-display: inline-flex;
+    -webkit-display: inline-flex;
+}
+
+@mixin align-items($val) {
+    align-items: $val;
+    -moz-align-items: $val;
+    -webkit-align-items: $val;
+}
+
+@mixin align-self($val) {
+    align-self: $val;
+    -moz-align-self: $val;
+    -webkit-align-self: $val;
+}
+
+@mixin justify-content($val) {
+    justify-content: $val;
+    -moz-justify-content: $val;
+    -webkit-justify-content: $val;
+}
+
+@mixin flex-direction($val) {
+    flex-direction: $val;
+    -moz-flex-direction: $val;
+    -webkit-flex-direction: $val;
+}
+
+@mixin flex-wrap($val) {
+    flex-wrap: $val;
+    -moz-flex-wrap: $val;
+    -webkit-flex-wrap: $val;
+}
+
+@mixin flex-grow($val) {
+    flex-grow: $val;
+    -moz-flex-grow: $val;
+    -webkit-flex-grow: $val;
+}
+@mixin flex($val) {
+    flex: $val;
+    -moz-flex: $val;
+    -webkit-flex: $val;
+}
+
+@mixin flex-basis($val) {
+    flex-basis: $val;
+    -moz-flex-basis: $val;
+    -webkit-flex-basis: $val;
+}
+
+@mixin background($value) {
+    background: $value;
+    -moz-background: $value;
+    -webkit-background: $value;
+}
+
+@mixin appearance($value) {
+    appearance: $value;
+    -webkit-appearance: $value;
+    -moz-appearance: $value;
+}
+
+@mixin box-shadow($value) {
+    box-shadow: $value;
+    -webkit-box-shadow: $value;
+    -moz-box-shadow: $value;
+}
+
+@include media-breakpoint-up(sm) {
+    $infix: breakpoint-infix(sm);
+    @each $prop, $abbrev in (margin: m) {
+        @each $size, $length in $margin-sm {
+            $baseline_rem: ($font-size-base / 1rem);
+            .#{$abbrev}#{$infix}-#{$size} {
+                #{$prop}: $length / $baseline_rem !important;
+                #{$prop}: $length !important;
+            }
+        }
+    }
+}
+@include media-breakpoint-up(sm) {
+    $infix: breakpoint-infix(sm);
+    @each $prop, $abbrev in (margin: m) {
+        @each $size, $length in $margin-sm-top {
+            $baseline_rem: ($font-size-base / 1rem);
+            .#{$abbrev}t#{$infix}-#{$size},
+            .#{$abbrev}y#{$infix}-#{$size} {
+                #{$prop}-top: $length / $baseline_rem !important;
+                #{$prop}-top: $length !important;
+            }
+        }
+    }
+}
+@include media-breakpoint-up(sm) {
+    $infix: breakpoint-infix(sm);
+
+    @each $prop, $abbrev in (margin: m) {
+        @each $size, $length in $margin-sm-left {
+            $baseline_rem: ($font-size-base / 1rem);
+            .#{$abbrev}l#{$infix}-#{$size},
+            .#{$abbrev}x#{$infix}-#{$size} {
+                #{$prop}-left: $length / $baseline_rem !important;
+                #{$prop}-left: $length !important;
+            }
+        }
+    }
+}
+@include media-breakpoint-up(sm) {
+    $infix: breakpoint-infix(sm);
+    @each $prop, $abbrev in (margin: m) {
+        @each $size, $length in $margin-sm-bottom {
+            $baseline_rem: ($font-size-base / 1rem);
+            .#{$abbrev}b#{$infix}-#{$size},
+            .#{$abbrev}y#{$infix}-#{$size} {
+                #{$prop}-bottom: $length / $baseline_rem !important;
+                #{$prop}-bottom: $length !important;
+            }
+        }
+    }
+}
+@include media-breakpoint-up(sm) {
+    $infix: breakpoint-infix(sm);
+    @each $prop, $abbrev in (margin: m) {
+        @each $size, $length in $margin-sm-right {
+            $baseline_rem: ($font-size-base / 1rem);
+            .#{$abbrev}r#{$infix}-#{$size},
+            .#{$abbrev}x#{$infix}-#{$size} {
+                #{$prop}-right: $length / $baseline_rem !important;
+                #{$prop}-right: $length !important;
+            }
+        }
+    }
+}
+@include media-breakpoint-up(md) {
+    $infix: breakpoint-infix(md);
+    @each $prop, $abbrev in (margin: m) {
+        @each $size, $length in $margin-md {
+            $baseline_rem: ($font-size-base / 1rem);
+            .#{$abbrev}#{$infix}-#{$size} {
+                #{$prop}: $length / $baseline_rem !important;
+                #{$prop}: $length !important;
+            }
+        }
+    }
+}
+@include media-breakpoint-up(md) {
+    $infix: breakpoint-infix(md);
+
+    @each $prop, $abbrev in (margin: m) {
+        @each $size, $length in $margin-md-top {
+            $baseline_rem: ($font-size-base / 1rem);
+            .#{$abbrev}t#{$infix}-#{$size},
+            .#{$abbrev}y#{$infix}-#{$size} {
+                #{$prop}-top: $length / $baseline_rem !important;
+                #{$prop}-top: $length !important;
+            }
+        }
+    }
+}
+@include media-breakpoint-up(md) {
+    $infix: breakpoint-infix(md);
+
+    @each $prop, $abbrev in (margin: m) {
+        @each $size, $length in $margin-md-left {
+            $baseline_rem: ($font-size-base / 1rem);
+            .#{$abbrev}l#{$infix}-#{$size},
+            .#{$abbrev}x#{$infix}-#{$size} {
+                #{$prop}-left: $length / $baseline_rem !important;
+                #{$prop}-left: $length !important;
+            }
+        }
+    }
+}
+@include media-breakpoint-up(md) {
+    $infix: breakpoint-infix(md);
+    @each $prop, $abbrev in (margin: m) {
+        @each $size, $length in $margin-md-bottom {
+            $baseline_rem: ($font-size-base / 1rem);
+            .#{$abbrev}b#{$infix}-#{$size},
+            .#{$abbrev}y#{$infix}-#{$size} {
+                #{$prop}-bottom: $length / $baseline_rem !important;
+                #{$prop}-bottom: $length !important;
+            }
+        }
+    }
+}
+@include media-breakpoint-up(md) {
+    $infix: breakpoint-infix(md);
+    @each $prop, $abbrev in (margin: m) {
+        @each $size, $length in $margin-md-right {
+            $baseline_rem: ($font-size-base / 1rem);
+            .#{$abbrev}r#{$infix}-#{$size},
+            .#{$abbrev}x#{$infix}-#{$size} {
+                #{$prop}-right: $length / $baseline_rem !important;
+                #{$prop}-right: $length !important;
+            }
+        }
+    }
+}
+@include media-breakpoint-up(lg) {
+    $infix: breakpoint-infix(lg);
+    @each $prop, $abbrev in (margin: m) {
+        @each $size, $length in $margin-lg {
+            $baseline_rem: ($font-size-base / 1rem);
+            .#{$abbrev}#{$infix}-#{$size} {
+                #{$prop}: $length / $baseline_rem !important;
+                #{$prop}: $length !important;
+            }
+        }
+    }
+}
+@include media-breakpoint-up(lg) {
+    $infix: breakpoint-infix(lg);
+    @each $prop, $abbrev in (margin: m) {
+        @each $size, $length in $margin-lg-top {
+            $baseline_rem: ($font-size-base / 1rem);
+            .#{$abbrev}t#{$infix}-#{$size},
+            .#{$abbrev}y#{$infix}-#{$size} {
+                #{$prop}-top: $length / $baseline_rem !important;
+                #{$prop}-top: $length !important;
+            }
+        }
+    }
+}
+@include media-breakpoint-up(lg) {
+    $infix: breakpoint-infix(lg);
+    @each $prop, $abbrev in (margin: m) {
+        @each $size, $length in $margin-lg-left {
+            $baseline_rem: ($font-size-base / 1rem);
+            .#{$abbrev}l#{$infix}-#{$size},
+            .#{$abbrev}x#{$infix}-#{$size} {
+                #{$prop}-left: $length / $baseline_rem !important;
+                #{$prop}-left: $length !important;
+            }
+        }
+    }
+}
+@include media-breakpoint-up(lg) {
+    $infix: breakpoint-infix(lg);
+    @each $prop, $abbrev in (margin: m) {
+        @each $size, $length in $margin-lg-bottom {
+            $baseline_rem: ($font-size-base / 1rem);
+            .#{$abbrev}b#{$infix}-#{$size},
+            .#{$abbrev}y#{$infix}-#{$size} {
+                #{$prop}-bottom: $length / $baseline_rem !important;
+                #{$prop}-bottom: $length !important;
+            }
+        }
+    }
+}
+@include media-breakpoint-up(lg) {
+    $infix: breakpoint-infix(lg);
+    @each $prop, $abbrev in (margin: m) {
+        @each $size, $length in $margin-lg-right {
+            $baseline_rem: ($font-size-base / 1rem);
+            .#{$abbrev}r#{$infix}-#{$size},
+            .#{$abbrev}x#{$infix}-#{$size} {
+                #{$prop}-right: $length / $baseline_rem !important;
+                #{$prop}-right: $length !important;
+            }
+        }
+    }
+}
+@include media-breakpoint-up(xl) {
+    $infix: breakpoint-infix(xl);
+    @each $prop, $abbrev in (margin: m) {
+        @each $size, $length in $margin-xl {
+            $baseline_rem: ($font-size-base / 1rem);
+            .#{$abbrev}#{$infix}-#{$size} {
+                #{$prop}: $length / $baseline_rem !important;
+                #{$prop}: $length !important;
+            }
+        }
+    }
+}
+@include media-breakpoint-up(xl) {
+    $infix: breakpoint-infix(xl);
+    @each $prop, $abbrev in (margin: m) {
+        @each $size, $length in $margin-xl-top {
+            $baseline_rem: ($font-size-base / 1rem);
+            .#{$abbrev}t#{$infix}-#{$size},
+            .#{$abbrev}y#{$infix}-#{$size} {
+                #{$prop}-top: $length / $baseline_rem !important;
+                #{$prop}-top: $length !important;
+            }
+        }
+    }
+}
+@include media-breakpoint-up(xl) {
+    $infix: breakpoint-infix(xl);
+    @each $prop, $abbrev in (margin: m) {
+        @each $size, $length in $margin-xl-left {
+            $baseline_rem: ($font-size-base / 1rem);
+            .#{$abbrev}l#{$infix}-#{$size},
+            .#{$abbrev}x#{$infix}-#{$size} {
+                #{$prop}-left: $length / $baseline_rem !important;
+                #{$prop}-left: $length !important;
+            }
+        }
+    }
+}
+@include media-breakpoint-up(xl) {
+    $infix: breakpoint-infix(xl);
+    @each $prop, $abbrev in (margin: m) {
+        @each $size, $length in $margin-xl-bottom {
+            $baseline_rem: ($font-size-base / 1rem);
+            .#{$abbrev}b#{$infix}-#{$size},
+            .#{$abbrev}y#{$infix}-#{$size} {
+                #{$prop}-bottom: $length / $baseline_rem !important;
+                #{$prop}-bottom: $length !important;
+            }
+        }
+    }
+}
+@include media-breakpoint-up(xl) {
+    $infix: breakpoint-infix(xl);
+    @each $prop, $abbrev in (margin: m) {
+        @each $size, $length in $margin-xl-right {
+            $baseline_rem: ($font-size-base / 1rem);
+            .#{$abbrev}r#{$infix}-#{$size},
+            .#{$abbrev}x#{$infix}-#{$size} {
+                #{$prop}-right: $length / $baseline_rem !important;
+                #{$prop}-right: $length !important;
+            }
+        }
+    }
+}
+@include media-breakpoint-up(sm) {
+    $infix: breakpoint-infix(sm);
+    @each $prop, $abbrev in (padding: p) {
+        @each $size, $length in $padding-sm {
+            $baseline_rem: ($font-size-base / 1rem);
+            .#{$abbrev}#{$infix}-#{$size} {
+                #{$prop}: $length / $baseline_rem !important;
+                #{$prop}: $length !important;
+            }
+        }
+    }
+}
+@include media-breakpoint-up(sm) {
+    $infix: breakpoint-infix(sm);
+    @each $prop, $abbrev in (padding: p) {
+        @each $size, $length in $padding-sm-top {
+            $baseline_rem: ($font-size-base / 1rem);
+            .#{$abbrev}t#{$infix}-#{$size},
+            .#{$abbrev}y#{$infix}-#{$size} {
+                #{$prop}-top: $length / $baseline_rem !important;
+                #{$prop}-top: $length !important;
+            }
+        }
+    }
+}
+@include media-breakpoint-up(sm) {
+    $infix: breakpoint-infix(sm);
+    @each $prop, $abbrev in (padding: p) {
+        @each $size, $length in $padding-sm-left {
+            $baseline_rem: ($font-size-base / 1rem);
+            .#{$abbrev}l#{$infix}-#{$size},
+            .#{$abbrev}x#{$infix}-#{$size} {
+                #{$prop}-left: $length / $baseline_rem !important;
+                #{$prop}-left: $length !important;
+            }
+        }
+    }
+}
+@include media-breakpoint-up(sm) {
+    $infix: breakpoint-infix(sm);
+    @each $prop, $abbrev in (padding: p) {
+        @each $size, $length in $padding-sm-bottom {
+            $baseline_rem: ($font-size-base / 1rem);
+            .#{$abbrev}b#{$infix}-#{$size},
+            .#{$abbrev}y#{$infix}-#{$size} {
+                #{$prop}-bottom: $length / $baseline_rem !important;
+                #{$prop}-bottom: $length !important;
+            }
+        }
+    }
+}
+@include media-breakpoint-up(sm) {
+    $infix: breakpoint-infix(sm);
+    @each $prop, $abbrev in (padding: p) {
+        @each $size, $length in $padding-sm-right {
+            $baseline_rem: ($font-size-base / 1rem);
+            .#{$abbrev}r#{$infix}-#{$size},
+            .#{$abbrev}x#{$infix}-#{$size} {
+                #{$prop}-right: $length / $baseline_rem !important;
+                #{$prop}-right: $length !important;
+            }
+        }
+    }
+}
+@include media-breakpoint-up(md) {
+    $infix: breakpoint-infix(md);
+    @each $prop, $abbrev in (padding: p) {
+        @each $size, $length in $padding-md {
+            $baseline_rem: ($font-size-base / 1rem);
+            .#{$abbrev}#{$infix}-#{$size} {
+                #{$prop}: $length / $baseline_rem !important;
+                #{$prop}: $length !important;
+            }
+        }
+    }
+}
+@include media-breakpoint-up(md) {
+    $infix: breakpoint-infix(md);
+    @each $prop, $abbrev in (padding: p) {
+        @each $size, $length in $padding-md-top {
+            $baseline_rem: ($font-size-base / 1rem);
+            .#{$abbrev}t#{$infix}-#{$size},
+            .#{$abbrev}y#{$infix}-#{$size} {
+                #{$prop}-top: $length / $baseline_rem !important;
+                #{$prop}-top: $length !important;
+            }
+        }
+    }
+}
+@include media-breakpoint-up(md) {
+    $infix: breakpoint-infix(md);
+    @each $prop, $abbrev in (padding: p) {
+        @each $size, $length in $padding-md-left {
+            $baseline_rem: ($font-size-base / 1rem);
+            .#{$abbrev}l#{$infix}-#{$size},
+            .#{$abbrev}x#{$infix}-#{$size} {
+                #{$prop}-left: $length / $baseline_rem !important;
+                #{$prop}-left: $length !important;
+            }
+        }
+    }
+}
+@include media-breakpoint-up(md) {
+    $infix: breakpoint-infix(md);
+    @each $prop, $abbrev in (padding: p) {
+        @each $size, $length in $padding-md-bottom {
+            $baseline_rem: ($font-size-base / 1rem);
+            .#{$abbrev}b#{$infix}-#{$size},
+            .#{$abbrev}y#{$infix}-#{$size} {
+                #{$prop}-bottom: $length / $baseline_rem !important;
+                #{$prop}-bottom: $length !important;
+            }
+        }
+    }
+}
+@include media-breakpoint-up(md) {
+    $infix: breakpoint-infix(md);
+    @each $prop, $abbrev in (padding: p) {
+        @each $size, $length in $padding-md-right {
+            $baseline_rem: ($font-size-base / 1rem);
+            .#{$abbrev}r#{$infix}-#{$size},
+            .#{$abbrev}x#{$infix}-#{$size} {
+                #{$prop}-right: $length / $baseline_rem !important;
+                #{$prop}-right: $length !important;
+            }
+        }
+    }
+}
+@include media-breakpoint-up(lg) {
+    $infix: breakpoint-infix(lg);
+    @each $prop, $abbrev in (padding: p) {
+        @each $size, $length in $padding-lg {
+            $baseline_rem: ($font-size-base / 1rem);
+            .#{$abbrev}#{$infix}-#{$size} {
+                #{$prop}: $length / $baseline_rem !important;
+                #{$prop}: $length !important;
+            }
+        }
+    }
+}
+@include media-breakpoint-up(lg) {
+    $infix: breakpoint-infix(lg);
+    @each $prop, $abbrev in (padding: p) {
+        @each $size, $length in $padding-lg-top {
+            $baseline_rem: ($font-size-base / 1rem);
+            .#{$abbrev}t#{$infix}-#{$size},
+            .#{$abbrev}y#{$infix}-#{$size} {
+                #{$prop}-top: $length / $baseline_rem !important;
+                #{$prop}-top: $length !important;
+            }
+        }
+    }
+}
+@include media-breakpoint-up(lg) {
+    $infix: breakpoint-infix(lg);
+    @each $prop, $abbrev in (padding: p) {
+        @each $size, $length in $padding-lg-left {
+            $baseline_rem: ($font-size-base / 1rem);
+            .#{$abbrev}l#{$infix}-#{$size},
+            .#{$abbrev}x#{$infix}-#{$size} {
+                #{$prop}-left: $length / $baseline_rem !important;
+                #{$prop}-left: $length !important;
+            }
+        }
+    }
+}
+@include media-breakpoint-up(lg) {
+    $infix: breakpoint-infix(lg);
+    @each $prop, $abbrev in (padding: p) {
+        @each $size, $length in $padding-lg-bottom {
+            $baseline_rem: ($font-size-base / 1rem);
+            .#{$abbrev}b#{$infix}-#{$size},
+            .#{$abbrev}y#{$infix}-#{$size} {
+                #{$prop}-bottom: $length / $baseline_rem !important;
+                #{$prop}-bottom: $length !important;
+            }
+        }
+    }
+}
+@include media-breakpoint-up(lg) {
+    $infix: breakpoint-infix(lg);
+    @each $prop, $abbrev in (padding: p) {
+        @each $size, $length in $padding-lg-right {
+            $baseline_rem: ($font-size-base / 1rem);
+            .#{$abbrev}r#{$infix}-#{$size},
+            .#{$abbrev}x#{$infix}-#{$size} {
+                #{$prop}-right: $length / $baseline_rem !important;
+                #{$prop}-right: $length !important;
+            }
+        }
+    }
+}
+@include media-breakpoint-up(xl) {
+    $infix: breakpoint-infix(xl);
+    @each $prop, $abbrev in (padding: p) {
+        @each $size, $length in $padding-xl {
+            $baseline_rem: ($font-size-base / 1rem);
+            .#{$abbrev}#{$infix}-#{$size} {
+                #{$prop}: $length / $baseline_rem !important;
+                #{$prop}: $length !important;
+            }
+        }
+    }
+}
+@include media-breakpoint-up(xl) {
+    $infix: breakpoint-infix(xl);
+    @each $prop, $abbrev in (padding: p) {
+        @each $size, $length in $padding-xl-top {
+            $baseline_rem: ($font-size-base / 1rem);
+            .#{$abbrev}t#{$infix}-#{$size},
+            .#{$abbrev}y#{$infix}-#{$size} {
+                #{$prop}-top: $length / $baseline_rem !important;
+                #{$prop}-top: $length !important;
+            }
+        }
+    }
+}
+@include media-breakpoint-up(xl) {
+    $infix: breakpoint-infix(xl);
+    @each $prop, $abbrev in (padding: p) {
+        @each $size, $length in $padding-xl-left {
+            $baseline_rem: ($font-size-base / 1rem);
+            .#{$abbrev}l#{$infix}-#{$size},
+            .#{$abbrev}x#{$infix}-#{$size} {
+                #{$prop}-left: $length / $baseline_rem !important;
+                #{$prop}-left: $length !important;
+            }
+        }
+    }
+}
+@include media-breakpoint-up(xl) {
+    $infix: breakpoint-infix(xl);
+    @each $prop, $abbrev in (padding: p) {
+        @each $size, $length in $padding-xl-bottom {
+            $baseline_rem: ($font-size-base / 1rem);
+            .#{$abbrev}b#{$infix}-#{$size},
+            .#{$abbrev}y#{$infix}-#{$size} {
+                #{$prop}-bottom: $length / $baseline_rem !important;
+                #{$prop}-bottom: $length !important;
+            }
+        }
+    }
+}
+@include media-breakpoint-up(xl) {
+    $infix: breakpoint-infix(xl);
+    @each $prop, $abbrev in (padding: p) {
+        @each $size, $length in $padding-xl-right {
+            $baseline_rem: ($font-size-base / 1rem);
+            .#{$abbrev}r#{$infix}-#{$size},
+            .#{$abbrev}x#{$infix}-#{$size} {
+                #{$prop}-right: $length / $baseline_rem !important;
+                #{$prop}-right: $length !important;
+            }
+        }
+    }
+}
