@@ -23,3 +23,4 @@ const validateForCompleteDualArr = (arrItems1, arrItems2) => {
     return true;
   }
 }
+
