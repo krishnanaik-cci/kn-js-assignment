@@ -28,74 +28,8 @@ const init = () => {
   let searchForNumInArraysBtn = document.getElementById("searchForNumInArraysBtn");
   searchForNumInArraysBtn.addEventListener("click", () => numExist());
 
-  // Gloabl validation start
-  //Accept only numeric input
-  for (var i = 0; i < numberInput.length; i++) {
-    numberInput[i].addEventListener(
-      "input",
-      function () {
-        this.value = this.value.replace(/&\/\\#+()$~%.'":*?<>{}=;\-\ ]/g, "");
-        enableBtn(document.getElementById(this.getAttribute("data-target")));
-      },
-      false
-    );
-  }
-
-  //Accept only string input
-  for (var i = 0; i < onlyStringInput.length; i++) {
-    onlyStringInput[i].addEventListener(
-      "input",
-      function () {
-        this.value = this.value.replace(/[^a-zA-Z]/g, "");
-        enableBtn(document.getElementById(this.getAttribute("data-target")));
-      },
-      false
-    );
-  }
-
-  //Accept only numeric array
-  for (let i = 0; i < numArrayInput.length; i++) {
-    numArrayInput[i].addEventListener(
-      "input",
-      function () {
-        if (this.value.length === 1 && this.value === ",") {
-          this.value = "";
-        } else if(this.value.match(/(,{2,})/g)){
-          this.value = this.value.replace(/(,{2,})/g, ",")
-        }
-        this.value = this.value.replace(
-          /(,{2,}|[^,0-9])/g,
-          ""
-        );
-        enableBtn(document.getElementById(this.getAttribute("data-target")));
-      },
-      false
-    );
-  }
-  // Gloabl validation end
-
+  globalValidation(numberInput, onlyStringInput, numArrayInput);
 };
-
-// Enable button if field is not empty
-const enableBtn = (parentID) => {
-
-  parentID.querySelector("button").removeAttribute('disabled');
-  const onlyInputs = parentID.querySelectorAll(".form-control");
-  let isEmpty;
-  
-  onlyInputs.forEach((input) => {
-    if(!input.value){
-      isEmpty = true;
-    }
-  });
-
-  if(isEmpty){
-    parentID.querySelector("button").setAttribute('disabled', true);
-  }else{
-    parentID.querySelector("button").removeAttribute('disabled');
-  }
-
-}
 
 // Task 1 :Calculate Age in Days
 const calcAgeInDays = () => {
@@ -159,27 +93,30 @@ const revStr = () => {
 
 // Task 5 : Sum of 2 Numbers
 const sumOf2Numbers = () => {
-  let arrVal = document.getElementById("sumOf2NumInput").value.split(",");
-  
-  let sumVal = sumOf(arrVal);
+  let arrVal = document.getElementById("sumOf2NumInput").value.replace(/\[/g, "").replace(/\]/g, "").split(",");
+  let targetVal = document.getElementById("sumTarget").value;
 
-  if (sumVal && isNaN(sumVal)) {
-    output("task5AlertWrapper", "alert-info", `${sumVal}`);
+  let indexVal = sumOf(arrVal, targetVal);
+
+  console.log(indexVal);
+
+  if (indexVal && isNaN(indexVal)) {
+    output("task5AlertWrapper", "alert-info", `${indexVal}`);
   } else {
     // error message should be based on the type of error
-    if (sumVal == -1) {
+    if (indexVal == -1) {
       output(
         "task5AlertWrapper",
         "alert-danger",
         "Incomplete Array. Number Required after ,"
       );
-    } else if(sumVal == -2) {
+    } else if(indexVal == -2) {
       output(
         "task5AlertWrapper",
         "alert-danger",
         "Target value not found"
       );
-    } else if(sumVal == -3){
+    } else if(indexVal == -3){
       output(
         "task5AlertWrapper",
         "alert-danger",
@@ -208,22 +145,30 @@ const calcSecsInHours = () => {
 
 // Task 8 : Number exists in array
 const numExist = () => {
-  let arrVal1 = document.getElementById("task8ArrInput1").value.split(",");
-  let arrVal2 = document.getElementById("task8ArrInput2").value.split(",");
+  let arrVal1 = document.getElementById("task8ArrInput1").value.replace(/\[/g, "").replace(/\]/g, "").split(",");
+  let arrVal2 = document.getElementById("task8ArrInput2").value.replace(/\[/g, "").replace(/\]/g, "").split(",");
+  console.log(arrVal1, arrVal2);
+  let target = document.getElementById("findValue").value;
+
+  let numInArray = isNumberPresent(arrVal1, arrVal2, target);
   
-  let targetVal = isNumberPresent(arrVal1, arrVal2);
-  
-  if (targetVal && isNaN(targetVal)) {
-    output("task8AlertWrapper", "alert-info", `<u>${targetVal}</u>`);
+  if (numInArray && isNaN(numInArray)) {
+    if(numInArray === "array_one"){
+      output("task8AlertWrapper", "alert-info", `number ${target} found in array_one`);
+    }else if(numInArray === "array_two"){
+      output("task8AlertWrapper", "alert-info", `number ${target} found in array_two`);
+    }else{
+      output("task8AlertWrapper", "alert-info", `number ${target} found in both arrays`);
+    }
   } else {
     // error message should be based on the type of error
-    if (targetVal == -1) {
+    if (numInArray == -1) {
       output(
         "task8AlertWrapper",
         "alert-danger",
         "Incomplete Array. Number Required after ,"
       );
-    } else if(targetVal == -2){
+    } else if(numInArray == -2){
       output(
         "task8AlertWrapper",
         "alert-danger",
