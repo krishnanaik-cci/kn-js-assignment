@@ -98,8 +98,6 @@ const sumOf2Numbers = () => {
 
   let indexVal = sumOf(arrVal, targetVal);
 
-  console.log(indexVal);
-
   if (indexVal && isNaN(indexVal)) {
     output("task5AlertWrapper", "alert-info", `${indexVal}`);
   } else {
@@ -147,12 +145,12 @@ const calcSecsInHours = () => {
 const numExist = () => {
   let arrVal1 = document.getElementById("task8ArrInput1").value.replace(/\[/g, "").replace(/\]/g, "").split(",");
   let arrVal2 = document.getElementById("task8ArrInput2").value.replace(/\[/g, "").replace(/\]/g, "").split(",");
-  console.log(arrVal1, arrVal2);
   let target = document.getElementById("findValue").value;
 
   let numInArray = isNumberPresent(arrVal1, arrVal2, target);
   
   if (numInArray && isNaN(numInArray)) {
+    
     if(numInArray === "array_one"){
       output("task8AlertWrapper", "alert-info", `number ${target} found in array_one`);
     }else if(numInArray === "array_two"){
@@ -160,8 +158,9 @@ const numExist = () => {
     }else{
       output("task8AlertWrapper", "alert-info", `number ${target} found in both arrays`);
     }
+
   } else {
-    // error message should be based on the type of error
+    
     if (numInArray == -1) {
       output(
         "task8AlertWrapper",
@@ -176,6 +175,7 @@ const numExist = () => {
       );
     }
   }
+
 };
 
 

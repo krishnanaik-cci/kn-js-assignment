@@ -139,9 +139,10 @@
               </div>
               <div class="card-body">
                 <div class="form-group">
-                  <label>Enter Numbers With Comma</label>
-                  <input type="text" class="form-control numArrayInput mb-2" id="sumOf2NumInput" placeholder="10, 20, 30..."
-                    data-target="task5Wrapper">
+                  <label>Enter Numbers With Comma In Square Brackets</label>
+                  <input type="text" class="form-control numArrayInput" id="sumOf2NumInput"
+                    placeholder="10, 20, 30..." data-target="task5Wrapper">
+                  <div id="sumOf2NumInputError" class="mb-2 error">Invalid Array</div>
                   <label>Enter Target Number</label>
                   <input type="number" class="form-control numberInput" id="sumTarget" data-target="task5Wrapper">
                 </div>
@@ -186,12 +187,14 @@
               </div>
               <div class="card-body">
                 <div class="form-group">
-                  <label>Enter Numbers With Comma for array1</label>
-                  <input type="text" class="form-control numArrayInput mb-2" id="task8ArrInput1" placeholder="10, 20, 30..."
-                    data-target="task8Wrapper">
-                  <label>Enter Numbers With Comma for array2</label>
-                  <input type="text" class="form-control numArrayInput mb-2" id="task8ArrInput2" placeholder="10, 20, 30..."
-                      data-target="task8Wrapper">
+                  <label>Enter Numbers With Comma For Array1 In Square Brackets</label>
+                  <input type="text" class="form-control numArrayInput mb-2" id="task8ArrInput1"
+                    placeholder="[10, 20, 30...]" data-target="task8Wrapper">
+                  <div id="task8ArrInput1Error" class="mb-2 error">Invalid Array</div>
+                  <label>Enter Numbers With Comma For Array2 In Square Brackets</label>
+                  <input type="text" class="form-control numArrayInput mb-2" id="task8ArrInput2"
+                    placeholder="[10, 20, 30...]" data-target="task8Wrapper">
+                  <div id="task8ArrInput2Error" class="mb-2 error">Invalid Array</div>
                   <label>Enter a number to search in the arrays</label>
                   <input type="number" class="form-control numberInput" id="findValue" data-target="task8Wrapper">
                 </div>

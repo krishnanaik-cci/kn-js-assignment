@@ -1,0 +1,15 @@
+.form-control{
+  &.invalid{
+    border: 1px solid $red;
+  }
+}
+
+label{
+  @include font-size(15px);
+}
+
+.error{
+  color: $red;
+  display: none;
+  @include font-size(14px);
+}

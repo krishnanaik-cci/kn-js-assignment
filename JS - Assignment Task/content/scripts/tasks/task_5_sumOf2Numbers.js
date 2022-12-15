@@ -28,6 +28,6 @@ const sumOf = (arr, targetVal) => {
     }
 
   } else {
-    return -1;
+    return -1; //this means incomplete array
   }
 };
