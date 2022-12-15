@@ -1,6 +1,7 @@
 .form-control{
   &.invalid{
     border: 1px solid $red;
+    @include box-shadow(0 0 0 0.2rem rgba($red, .50));
   }
 }
 
