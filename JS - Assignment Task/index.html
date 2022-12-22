@@ -5,22 +5,29 @@
   <!-- charset meta tag -->
   <meta charset="UTF-8" />
   <!-- / charset meta tag -->
+
   <!-- http-equiv meta tag -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <!-- / http-equiv meta tag -->
+
   <!-- keywords meta tag -->
   <meta name="keywords" content="JS Assingment" />
   <!-- / keywords meta tags -->
+
   <!-- description meta tag -->
   <meta name="description" content="JS Assingment" />
   <!-- / description meta tag -->
+
   <!-- viewport meta tag -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- / viewport meta tag -->
+
   <title>Home</title>
+
   <!-- bootstrap css -->
   <link rel="stylesheet" href="./content/css/bootstrap.min.css" />
   <!-- custom stylesheet -->
+
   <link rel="stylesheet" href="./content/css/styles.min.css" />
   <!-- / custom stylesheet -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -72,7 +79,7 @@
                   <input type="number" min="0" class="form-control numberInput" id="calcAgeInDaysInput"
                     data-target="task1Wrapper">
                 </div>
-                <button type="submit" class="btn btn-primary" id="calcAgeInDaysBtn" disabled>Submit</button>
+                <button type="button" class="btn btn-primary" id="calcAgeInDaysBtn" disabled>Submit</button>
                 <div id="task1AlertWrapper"></div>
               </div>
             </div>
@@ -81,74 +88,105 @@
           <!-- Task 2 :Calculate Age in Seconds -->
           <div class="col" id="task2Wrapper">
             <div class="card rounded-0">
+              
               <div class="card-header bg-green rounded-0 font-weight-bold">
                 Task 2: Calculate Age in Seconds
               </div>
+
               <div class="card-body">
-                <div class="form-group">
-                  <label>Enter Age</label>
-                  <input type="number" class="form-control numberInput" id="calcAgeInSecsInput"
-                    data-target="task2Wrapper">
-                </div>
-                <button type="submit" class="btn btn-primary" id="calcAgeInSecsBtn" disabled>Submit</button>
+                <form autocomplete="off">
+                  <div class="form-group">
+                    <label>Enter Age</label>
+                    <input type="number" class="form-control numberInput" id="calcAgeInSecsInput"
+                      data-target="task2Wrapper">
+                  </div>
+                  <button type="button" class="btn btn-primary" id="calcAgeInSecsBtn" disabled>Submit</button>
+                </form>
+
                 <div id="task2AlertWrapper"></div>
               </div>
+
             </div>
           </div>
 
           <!-- Task 3 : Buggy Code -->
           <div class="col" id="task3Wrapper">
             <div class="card rounded-0">
+              
               <div class="card-header bg-green rounded-0 font-weight-bold">
                 Task 3: Buggy Code
               </div>
+
               <div class="card-body">
-                <div class="form-group">
-                  <label>Enter Number</label>
-                  <input type="number" class="form-control numberInput" id="getCube" data-target="task3Wrapper">
-                </div>
-                <button type="submit" class="btn btn-primary" id="buggyCodeBtn" disabled>Submit</button>
+                <form autocomplete="off">
+                  <div class="form-group">
+                    <label>Enter Number</label>
+                    <input type="number" class="form-control numberInput" id="getCube" data-target="task3Wrapper">
+                  </div>
+                  <button type="button" class="btn btn-primary" id="buggyCodeBtn" disabled>Submit</button>
+                </form>
+
                 <div id="task3AlertWrapper"></div>
               </div>
+
             </div>
           </div>
 
           <!-- Task 4 :Reversing a String -->
           <div class="col" id="task4Wrapper">
             <div class="card rounded-0">
+              
               <div class="card-header bg-green rounded-0 font-weight-bold">
                 Task 4: Reversing a String
               </div>
+              
               <div class="card-body">
-                <div class="form-group">
-                  <label>Enter a String</label>
-                  <input type="text" class="form-control onlyStringInput" id="revStringInput"
-                    data-target="task4Wrapper">
-                </div>
-                <button type="submit" class="btn btn-primary" id="reversStr" disabled>Submit</button>
+                <form autocomplete="off">
+                  <div class="form-group">
+                    <label>Enter a String</label>
+                    <input type="text" class="form-control onlyStringInput" id="revStringInput"
+                      data-target="task4Wrapper">
+                  </div>
+                  <button type="button" class="btn btn-primary" id="reversStr" disabled>Submit</button>
+                </form>
+
                 <div id="task4AlertWrapper"></div>
               </div>
+
             </div>
           </div>
 
           <!-- Task 5 : Sum of 2 Numbers -->
           <div class="col" id="task5Wrapper">
             <div class="card rounded-0">
+              
               <div class="card-header bg-green rounded-0 font-weight-bold">
                 Task 5: Sum of 2 Numbers
               </div>
+              
               <div class="card-body">
-                <div class="form-group">
-                  <label>Enter Numbers With Comma In Square Brackets</label>
-                  <input type="text" class="form-control numArrayInput" id="sumOf2NumInput"
-                    placeholder="[10, 20, 30...]" data-target="task5Wrapper">
-                  <div id="sumOf2NumInputError" class="mb-2 error">Please enter array correctly in square brackets e.g [1,2,3]</div>
-                  <label>Enter Target Number</label>
-                  <input type="number" class="form-control numberInput" id="sumTarget" data-target="task5Wrapper">
-                </div>
-                <button type="submit" class="btn btn-primary" id="sumOf2NumBtn" disabled>Submit</button>
+                <form autocomplete="off">
+                  <div class="form-group">
+                    <!-- array field -->
+                    <label>Enter Numbers With Comma In Square Brackets</label>
+                    <input type="text" class="form-control numArrayInput" id="sumOf2NumInput"
+                      placeholder="[10, 20, 30...]" data-target="task5Wrapper">
+                    
+                    <!-- array error div -->
+                    <div id="sumOf2NumInputError" class="mb-2 error"></div>
+
+                    <!-- tagret value field -->
+                    <label>Enter Target Number</label>
+                    <input type="number" class="form-control numberInput" id="sumTarget" data-target="task5Wrapper">
+                  </div>
+
+                  <button type="button" class="btn btn-primary" id="sumOf2NumBtn" disabled>Submit</button>
+                </form>
+
+                <!-- result div -->
                 <div id="task5AlertWrapper"></div>
               </div>
+
             </div>
           </div>
         </div>
@@ -163,41 +201,66 @@
           <!-- Task 6 : How many Seconds in hours -->
           <div class="col" id="task6Wrapper">
             <div class="card rounded-0">
+
               <div class="card-header bg-green rounded-0 font-weight-bold">
                 Task 6: How many Seconds in hours
               </div>
+
               <div class="card-body">
-                <div class="form-group">
-                  <label>Enter Hours</label>
-                  <input type="number" class="form-control numberInput" id="calcSecsInHoursInput"
-                    data-target="task6Wrapper">
-                </div>
-                <button type="submit" class="btn btn-primary" id="calcSecsInHoursBtn" disabled>Submit</button>
+                <form autocomplete="off">
+                  <!-- enter hours field -->
+                  <div class="form-group">
+                    <label>Enter Hours</label>
+                    <input type="number" class="form-control numberInput" id="calcSecsInHoursInput"
+                      data-target="task6Wrapper">
+                  </div>
+
+                  <button type="button" class="btn btn-primary" id="calcSecsInHoursBtn" disabled>Submit</button>
+                </form>
+
+                <!-- result div -->
                 <div id="task6AlertWrapper"></div>
               </div>
+
             </div>
           </div>
 
           <!-- Task 8 : Number exists in array -->
           <div class="col" id="task8Wrapper">
             <div class="card rounded-0">
+
               <div class="card-header bg-green rounded-0 font-weight-bold">
                 Task 8: Number exists in array
               </div>
+
               <div class="card-body">
-                <div class="form-group">
-                  <label>Enter Numbers With Comma For Array1 In Square Brackets</label>
-                  <input type="text" class="form-control numArrayInput mb-2" id="task8ArrInput1"
-                    placeholder="[10, 20, 30...]" data-target="task8Wrapper">
-                  <div id="task8ArrInput1Error" class="mb-2 error">Invalid Array</div>
-                  <label>Enter Numbers With Comma For Array2 In Square Brackets</label>
-                  <input type="text" class="form-control numArrayInput mb-2" id="task8ArrInput2"
-                    placeholder="[10, 20, 30...]" data-target="task8Wrapper">
-                  <div id="task8ArrInput2Error" class="mb-2 error">Invalid Array</div>
-                  <label>Enter a number to search in the arrays</label>
-                  <input type="number" class="form-control numberInput" id="findValue" data-target="task8Wrapper">
-                </div>
-                <button type="submit" class="btn btn-primary" id="searchForNumInArraysBtn" disabled>Submit</button>
+                <form autocomplete="off">
+                  <div class="form-group">
+                    <!-- array 1 field -->
+                    <label>Enter Numbers With Comma For Array1 In Square Brackets</label>
+                    <input type="text" class="form-control numArrayInput mb-2" id="task8ArrInput1"
+                      placeholder="[10, 20, 30...]" data-target="task8Wrapper">
+                    
+                     <!-- array 1 error div -->
+                    <div id="task8ArrInput1Error" class="mb-2 error"></div>
+
+                    <!-- array 2 field -->
+                    <label>Enter Numbers With Comma For Array2 In Square Brackets</label>
+                    <input type="text" class="form-control numArrayInput mb-2" id="task8ArrInput2"
+                      placeholder="[10, 20, 30...]" data-target="task8Wrapper">
+                    
+                    <!-- array 2 error div -->
+                    <div id="task8ArrInput2Error" class="mb-2 error"></div>
+
+                    <!-- target value field -->
+                    <label>Enter a number to search in the arrays</label>
+                    <input type="number" class="form-control numberInput" id="findValue" data-target="task8Wrapper">
+                  </div>
+
+                  <button type="button" class="btn btn-primary" id="searchForNumInArraysBtn" disabled>Submit</button>
+                </form>
+
+                <!-- result div -->
                 <div id="task8AlertWrapper"></div>
               </div>
             </div>

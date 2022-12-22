@@ -1,156 +1,73 @@
 // Gloabl validation start
-const globalValidation = (numberInput, onlyStringInput, numArrayInput) => {
-  //Accept only numeric input
-  for (var i = 0; i < numberInput.length; i++) {
-    numberInput[i].addEventListener(
-      "input",
-      function () {
-        this.value = this.value.replace(/&\/\\#+()$~%.'":*?<>{}=;\-\ ]/g, "");
-        //enable button only if both the arrays are complete and target value is added
-        enableBtn(document.getElementById(this.getAttribute("data-target")));
-      },
-      false
-    );
-  }
-
+// const globalValidation = (numberInput, onlyStringInput, numArrayInput) => {
   //Accept only string input
-  for (var i = 0; i < onlyStringInput.length; i++) {
-    onlyStringInput[i].addEventListener(
-      "input",
-      function () {
-        this.value = this.value.replace(/[^a-zA-Z]/g, "");
-        enableBtn(document.getElementById(this.getAttribute("data-target")));
-      },
-      false
-    );
-  }
-
-  //Accept only numeric array
-  for (let i = 0; i < numArrayInput.length; i++) {
-    numArrayInput[i].addEventListener(
-      "input",
-      function () {
-
-        this.value = this.value.replace(/(,{2,})/g, ",");
-        
-        if (!this.value.charAt(this.value.length - 1).match(/(\])/g)) {
-          this.value[this.value.length - 1] = "]";
-        }
-
-        if (this.value.charAt(0) == ",") {
-          this.value = "";
-        }
-
-        if (
-          this.value.charAt(0) != "[" ||
-          this.value.charAt(0).match(/(\[)/g) == null ||
-          this.value.charAt(this.value.length - 1) != "]" ||
-          this.value.match(/,]/g) ||
-          this.value.indexOf("[") != this.value.lastIndexOf("[") ||
-          this.value.indexOf("]") != this.value.lastIndexOf("]")
-        ) {
-          this.classList.add("invalid");
-          document
-            .getElementById(this.getAttribute("id") + "Error")
-            .classList.add("d-block");
-        } else {
-          this.classList.remove("invalid");
-          this.classList.remove("d-block");
-          document
-            .getElementById(this.getAttribute("id") + "Error")
-            .classList.remove("d-block");
-        }
-      
-
-        this.value = this.value.replace(/[^,\[\]0-9]/g, "");
-        enableBtn(document.getElementById(this.getAttribute("data-target")));
-      },
-      false
-    );
-    numArrayInput[i].addEventListener("paste", (e) => e.preventDefault());
-  }
-
-  //onblue check for empty numeric array
-  // for (let i = 0; i < numArrayInput.length; i++) {
-  //   numArrayInput[i].addEventListener(
-  //     "blur",
-  //     function () {
-  //       console.log("this.value.length = "+ this.value == "[]");
-  //       if (this.value.match(/,]/g) || this.value == "[]") {
-  //         this.classList.add("invalid");
-  //         document.getElementById(this.getAttribute("id")+"Error").classList.add("d-block");
-  //       }else{
-  //         this.classList.remove("invalid");
-  //         this.classList.remove("d-block");
-  //         document.getElementById(this.getAttribute("id")+"Error").classList.remove("d-block");
-  //       }
-  //     });
+  // for (var i = 0; i < onlyStringInput.length; i++) {
+  //   onlyStringInput[i].addEventListener("input", function () {
+  //     this.value = this.value.replace(/[^a-zA-Z]/g, "");
+  //     enableBtn(document.getElementById(this.getAttribute("data-target")));
+  //   });
   // }
+// };
 
-  // Enable button if field is not empty
-  const enableBtn = (parentID) => {
-    parentID.querySelector("button").removeAttribute("disabled");
-    const onlyInputs = parentID.querySelectorAll(".form-control");
-    let isEmpty;
-    let isArrayEmpty;
+// Global num validation array
+const validtNumArray = (value, InputId) => {
 
-    onlyInputs.forEach((input) => {
-      
-      if (input.classList.contains("numArrayInput")) {
-        //if input is array
-        if (
-          input.classList.contains("invalid")
-        ) {
-          isArrayEmpty = true;
-        } else {
-          isArrayEmpty = false;
-        }
-      } else {
-        if (input.value == "") {
-          isEmpty = true;
-        } else {
-          isEmpty = false;
-        }
-      }
-    });
-
-    if (isEmpty && isArrayEmpty) {
-      parentID.querySelector("button").setAttribute("disabled", true);
-    } else if (!isEmpty && isArrayEmpty) {
-      parentID.querySelector("button").setAttribute("disabled", true);
-    } else if (isEmpty) {
-      parentID.querySelector("button").setAttribute("disabled", true);
+  // Perform validation only when you enter only numbers & when input is not empty
+  if (value.match(/[a-zA-Z]/g) == null && value) {
+    if (
+      value.charAt(0) != "[" ||
+      value.charAt(0).match(/(\[)/g) == null ||
+      value.charAt(value.length - 1) != "]" ||
+      value.match(/,]/g) ||
+      value.indexOf("[") != value.lastIndexOf("[") ||
+      value.indexOf("]") != value.lastIndexOf("]") ||
+      value == "[]"
+    ) {
+      return "Invalid";
+    } else if (value.length < 6) {
+      return "Short";
     } else {
-      parentID.querySelector("button").removeAttribute("disabled");
+      return true;
     }
-  };
-};
-// Gloabl validation end
-
-const isNotEmpty = (val) => {
-  if (val === "") {
-    return false;
   } else {
-    return true;
+    return false;
   }
 };
 
-// check if numeric array is complete (checks the last value)
-const validateForCompleteArr = (arrItems, sumVal) => {
-  if (arrItems[arrItems.length - 1] == "") {
-    return false;
-  } else {
-    return true;
-  }
-};
+// Enable button if field is not empty
+const enableBtn = (parentID) => {
 
-// check if numeric array is complete
-const validateForCompleteDualArr = (arrItems1, arrItems2, tarVal) => {
-  if (
-    arrItems1[arrItems1.length - 1] == "" &&
-    arrItems2[arrItems2.length - 1] == ""
-  ) {
+  parentID.querySelector("button").removeAttribute("disabled");
+  const onlyInputs = parentID.querySelectorAll(".form-control");
+  let isEmpty;
+  let isArrayEmpty;
+
+  onlyInputs.forEach((input) => {
+    if (input.classList.contains("numArrayInput")) {
+      if (input.classList.contains("invalid") || input.value.length == 0) {
+        isArrayEmpty = true;
+      } else {
+        isArrayEmpty = false;
+      }
+    } else {
+      if (input.value == "") {
+        isEmpty = true;
+      } else {
+        isEmpty = false;
+      }
+    }
+  });
+
+  if (isEmpty && isArrayEmpty) {
+    console.log("isEmpty && isArrayEmpty");
+    parentID.querySelector("button").setAttribute("disabled", true);
+  } else if (!isEmpty && isArrayEmpty) {
+    console.log("!isEmpty && isArrayEmpty");
+    parentID.querySelector("button").setAttribute("disabled", true);
+  } else if (isEmpty) {
+    console.log("isEmpty");
+    parentID.querySelector("button").setAttribute("disabled", true);
   } else {
-    return true;
+    parentID.querySelector("button").removeAttribute("disabled");
   }
 };

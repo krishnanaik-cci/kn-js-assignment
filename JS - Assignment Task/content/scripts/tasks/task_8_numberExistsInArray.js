@@ -5,20 +5,13 @@ Created By: Krishna Naik
 Created Date: 13-Dec-2022
 -------------------------------------*/
 const isNumberPresent = (arr1, arr2, targetVal) => {
-  
-  if (validateForCompleteDualArr(arr1, arr2, targetVal)) {
-
-    if (arr1.includes(targetVal) && arr2.includes(targetVal)) {
-      return "both";
-    } else if (arr1.includes(targetVal)) {
-      return "array_one";
-    } else if (arr2.includes(targetVal)) {
-      return "array_two";
-    } else {
-      return -2;
-    }
+  if (arr1.includes(targetVal) && arr2.includes(targetVal)) {
+    return "both";
+  } else if (arr1.includes(targetVal)) {
+    return "array_one";
+  } else if (arr2.includes(targetVal)) {
+    return "array_two";
   } else {
-    return -1;
+    return -2;
   }
-
 };
