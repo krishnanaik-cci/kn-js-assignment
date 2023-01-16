@@ -10,9 +10,9 @@
 // };
 
 // Global num validation array
-const validtNumArray = (value, InputId) => {
-
-  // Perform validation only when you enter only numbers & when input is not empty
+const validtNumArray = (value) => {
+  // Perform validation only when you enter numbers & when input is not empty
+  // console.log("value = "+ typeof(value)+" value.length = "+ value.length+" ==> "+ value.split(",")+"--> "+ typeof(JSON.parse(value).length));
   if (value.match(/[a-zA-Z]/g) == null && value) {
     if (
       value.charAt(0) != "[" ||
@@ -24,7 +24,7 @@ const validtNumArray = (value, InputId) => {
       value == "[]"
     ) {
       return "Invalid";
-    } else if (value.length < 6) {
+    } else if (value.split(",").length < 2) {
       return "Short";
     } else {
       return true;

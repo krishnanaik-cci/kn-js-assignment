@@ -34,7 +34,7 @@
 </head>
 
 <body>
-
+<main class="pb-5 position-relative">
   <header>
     <nav class="navbar navbar-expand-lg">
       <a class="navbar-brand text-white" href="javascript:void(0)">JS Assingment 1</a>
@@ -46,236 +46,266 @@
   </header>
 
   <div class="container my-5">
-    <nav>
-      <div class="nav nav-tabs" id="nav-tab" role="tablist">
-        <!-- Section 1 tab -->
-        <button class="nav-link active" id="nav-home-tab" data-toggle="tab" data-target="#nav-home" type="button"
-          role="tab" aria-controls="nav-home" aria-selected="true">Section 1</button>
+  <div class="row">
+    <div class="col-lg-4">
+      <nav class="bg-white h-100">
+        <div class="nav flex-column nav-pills" id="nav-tab" role="tablist">
+          <!-- Section 1 tab -->
+          <button class="nav-link active text-uppercase font-weight-bold rounded-0" id="nav-home-tab" data-toggle="tab" data-target="#nav-home" type="button"
+            role="tab" aria-controls="nav-home" aria-selected="true">Section 1</button>
+  
+          <!-- Section 2 tab -->
+          <button class="nav-link text-uppercase font-weight-bold rounded-0" id="nav-profile-tab" data-toggle="tab" data-target="#nav-profile" type="button"
+            role="tab" aria-controls="nav-profile" aria-selected="false">Section 2</button>
+  
+          <!-- Section 3 tab -->
+          <button class="nav-link text-uppercase font-weight-bold rounded-0" id="nav-contact-tab" data-toggle="tab" data-target="#nav-contact" type="button"
+            role="tab" aria-controls="nav-contact" aria-selected="false">Section 3</button>
+        </div>
+      </nav>
 
-        <!-- Section 2 tab -->
-        <button class="nav-link" id="nav-profile-tab" data-toggle="tab" data-target="#nav-profile" type="button"
-          role="tab" aria-controls="nav-profile" aria-selected="false">Section 2</button>
-
-        <!-- Section 3 tab -->
-        <button class="nav-link" id="nav-contact-tab" data-toggle="tab" data-target="#nav-contact" type="button"
-          role="tab" aria-controls="nav-contact" aria-selected="false">Section 3</button>
-      </div>
-    </nav>
-    <div class="tab-content" id="nav-tabContent">
-      <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-
-        <!-- problem cards -->
-        <div class="row row-cols-3">
-
-          <!-- Task 1 :Calculate Age in Days -->
-          <div class="col" id="task1Wrapper">
-            <div class="card rounded-0">
-              <div class="card-header bg-green rounded-0 font-weight-bold">
-                Task 1: Calculate Age in Days
-              </div>
-              <div class="card-body">
-                <div class="form-group">
-                  <label>Enter Age</label>
-                  <input type="number" min="0" class="form-control numberInput" id="calcAgeInDaysInput"
-                    data-target="task1Wrapper">
-                </div>
-                <button type="button" class="btn btn-primary" id="calcAgeInDaysBtn" disabled>Submit</button>
-                <div id="task1AlertWrapper"></div>
-              </div>
-            </div>
+      <!-- <div class="row">
+        <div class="col-3">
+          <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+            <button class="nav-link active" id="v-pills-home-tab" data-toggle="pill" data-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">Home</button>
+            <button class="nav-link" id="v-pills-profile-tab" data-toggle="pill" data-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Profile</button>
+            <button class="nav-link" id="v-pills-messages-tab" data-toggle="pill" data-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">Messages</button>
+            <button class="nav-link" id="v-pills-settings-tab" data-toggle="pill" data-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</button>
           </div>
+        </div>
+        <div class="col-9">
+          <div class="tab-content" id="v-pills-tabContent">
+            <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">...</div>
+            <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">...</div>
+            <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">...</div>
+            <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...</div>
+          </div>
+        </div>
+      </div> -->
+    </div>
+    <div class="col-lg-8">
+      <div class="tab-content" id="nav-tabContent">
 
-          <!-- Task 2 :Calculate Age in Seconds -->
-          <div class="col" id="task2Wrapper">
-            <div class="card rounded-0">
-              
-              <div class="card-header bg-green rounded-0 font-weight-bold">
-                Task 2: Calculate Age in Seconds
-              </div>
-
-              <div class="card-body">
-                <form autocomplete="off">
+        <!-- tab 1 -->
+        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+  
+          <!-- problem cards -->
+          <div class="row row-cols-2">
+  
+            <!-- Task 1 :Calculate Age in Days -->
+            <div class="col" id="task1Wrapper">
+              <div class="card rounded-0">
+                <div class="card-header bg-green rounded-0 font-weight-bold">
+                  Task 1: Calculate Age in Days
+                </div>
+                <div class="card-body">
                   <div class="form-group">
                     <label>Enter Age</label>
-                    <input type="number" class="form-control numberInput" id="calcAgeInSecsInput"
-                      data-target="task2Wrapper">
+                    <input type="number" min="0" class="form-control numberInput" id="calcAgeInDaysInput"
+                      data-target="task1Wrapper">
                   </div>
-                  <button type="button" class="btn btn-primary" id="calcAgeInSecsBtn" disabled>Submit</button>
-                </form>
-
-                <div id="task2AlertWrapper"></div>
+                  <button type="button" class="btn btn-primary" id="calcAgeInDaysBtn" disabled>Submit</button>
+                  <div id="task1AlertWrapper"></div>
+                </div>
               </div>
-
             </div>
-          </div>
-
-          <!-- Task 3 : Buggy Code -->
-          <div class="col" id="task3Wrapper">
-            <div class="card rounded-0">
-              
-              <div class="card-header bg-green rounded-0 font-weight-bold">
-                Task 3: Buggy Code
+  
+            <!-- Task 2 :Calculate Age in Seconds -->
+            <div class="col" id="task2Wrapper">
+              <div class="card rounded-0">
+                
+                <div class="card-header bg-green rounded-0 font-weight-bold">
+                  Task 2: Calculate Age in Seconds
+                </div>
+  
+                <div class="card-body">
+                  <form autocomplete="off">
+                    <div class="form-group">
+                      <label>Enter Age</label>
+                      <input type="number" class="form-control numberInput" id="calcAgeInSecsInput"
+                        data-target="task2Wrapper">
+                    </div>
+                    <button type="button" class="btn btn-primary" id="calcAgeInSecsBtn" disabled>Submit</button>
+                  </form>
+  
+                  <div id="task2AlertWrapper"></div>
+                </div>
+  
               </div>
-
-              <div class="card-body">
-                <form autocomplete="off">
-                  <div class="form-group">
-                    <label>Enter Number</label>
-                    <input type="number" class="form-control numberInput" id="getCube" data-target="task3Wrapper">
-                  </div>
-                  <button type="button" class="btn btn-primary" id="buggyCodeBtn" disabled>Submit</button>
-                </form>
-
-                <div id="task3AlertWrapper"></div>
-              </div>
-
             </div>
-          </div>
-
-          <!-- Task 4 :Reversing a String -->
-          <div class="col" id="task4Wrapper">
-            <div class="card rounded-0">
-              
-              <div class="card-header bg-green rounded-0 font-weight-bold">
-                Task 4: Reversing a String
+  
+            <!-- Task 3 : Buggy Code -->
+            <div class="col" id="task3Wrapper">
+              <div class="card rounded-0">
+                
+                <div class="card-header bg-green rounded-0 font-weight-bold">
+                  Task 3: Buggy Code
+                </div>
+  
+                <div class="card-body">
+                  <form autocomplete="off">
+                    <div class="form-group">
+                      <label>Enter Number</label>
+                      <input type="number" class="form-control numberInput" id="getCube" data-target="task3Wrapper">
+                    </div>
+                    <button type="button" class="btn btn-primary" id="buggyCodeBtn" disabled>Submit</button>
+                  </form>
+  
+                  <div id="task3AlertWrapper"></div>
+                </div>
+  
               </div>
-              
-              <div class="card-body">
-                <form autocomplete="off">
-                  <div class="form-group">
-                    <label>Enter a String</label>
-                    <input type="text" class="form-control onlyStringInput" id="revStringInput"
-                      data-target="task4Wrapper">
-                  </div>
-                  <button type="button" class="btn btn-primary" id="reversStr" disabled>Submit</button>
-                </form>
-
-                <div id="task4AlertWrapper"></div>
-              </div>
-
             </div>
-          </div>
-
-          <!-- Task 5 : Sum of 2 Numbers -->
-          <div class="col" id="task5Wrapper">
-            <div class="card rounded-0">
-              
-              <div class="card-header bg-green rounded-0 font-weight-bold">
-                Task 5: Sum of 2 Numbers
+  
+            <!-- Task 4 :Reversing a String -->
+            <div class="col" id="task4Wrapper">
+              <div class="card rounded-0">
+                
+                <div class="card-header bg-green rounded-0 font-weight-bold">
+                  Task 4: Reversing a String
+                </div>
+                
+                <div class="card-body">
+                  <form autocomplete="off">
+                    <div class="form-group">
+                      <label>Enter a String</label>
+                      <input type="text" class="form-control onlyStringInput" id="revStringInput"
+                        data-target="task4Wrapper">
+                    </div>
+                    <button type="button" class="btn btn-primary" id="reversStr" disabled>Submit</button>
+                  </form>
+  
+                  <div id="task4AlertWrapper"></div>
+                </div>
+  
               </div>
-              
-              <div class="card-body">
-                <form autocomplete="off">
-                  <div class="form-group">
-                    <!-- array field -->
-                    <label>Enter Numbers With Comma In Square Brackets</label>
-                    <input type="text" class="form-control numArrayInput" id="sumOf2NumInput"
-                      placeholder="[10, 20, 30...]" data-target="task5Wrapper">
-                    
-                    <!-- array error div -->
-                    <div id="sumOf2NumInputError" class="mb-2 error"></div>
-
-                    <!-- tagret value field -->
-                    <label>Enter Target Number</label>
-                    <input type="number" class="form-control numberInput" id="sumTarget" data-target="task5Wrapper">
-                  </div>
-
-                  <button type="button" class="btn btn-primary" id="sumOf2NumBtn" disabled>Submit</button>
-                </form>
-
-                <!-- result div -->
-                <div id="task5AlertWrapper"></div>
+            </div>
+  
+            <!-- Task 5 : Sum of 2 Numbers -->
+            <div class="col" id="task5Wrapper">
+              <div class="card rounded-0">
+                
+                <div class="card-header bg-green rounded-0 font-weight-bold">
+                  Task 5: Sum of 2 Numbers
+                </div>
+                
+                <div class="card-body">
+                  <form autocomplete="off">
+                    <div class="form-group">
+                      <!-- array field -->
+                      <label>Enter Numbers With Comma In Square Brackets</label>
+                      <input type="text" class="form-control numArrayInput" id="sumOf2NumInput"
+                        placeholder="[10, 20, 30...]" data-target="task5Wrapper">
+                      
+                      <!-- array error div -->
+                      <div id="sumOf2NumInputError" class="mb-2 error"></div>
+  
+                      <!-- tagret value field -->
+                      <label>Enter Target Number</label>
+                      <input type="number" class="form-control numberInput" id="sumTarget" data-target="task5Wrapper">
+                    </div>
+  
+                    <button type="button" class="btn btn-primary" id="sumOf2NumBtn" disabled>Submit</button>
+                  </form>
+  
+                  <!-- result div -->
+                  <div id="task5AlertWrapper"></div>
+                </div>
+  
               </div>
-
             </div>
           </div>
         </div>
-      </div>
-
-      <!-- tab 2 -->
-      <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-
-        <!-- problem cards -->
-        <div class="row row-cols-3">
-
-          <!-- Task 6 : How many Seconds in hours -->
-          <div class="col" id="task6Wrapper">
-            <div class="card rounded-0">
-
-              <div class="card-header bg-green rounded-0 font-weight-bold">
-                Task 6: How many Seconds in hours
-              </div>
-
-              <div class="card-body">
-                <form autocomplete="off">
-                  <!-- enter hours field -->
-                  <div class="form-group">
-                    <label>Enter Hours</label>
-                    <input type="number" class="form-control numberInput" id="calcSecsInHoursInput"
-                      data-target="task6Wrapper">
-                  </div>
-
-                  <button type="button" class="btn btn-primary" id="calcSecsInHoursBtn" disabled>Submit</button>
-                </form>
-
-                <!-- result div -->
-                <div id="task6AlertWrapper"></div>
-              </div>
-
-            </div>
-          </div>
-
-          <!-- Task 8 : Number exists in array -->
-          <div class="col" id="task8Wrapper">
-            <div class="card rounded-0">
-
-              <div class="card-header bg-green rounded-0 font-weight-bold">
-                Task 8: Number exists in array
-              </div>
-
-              <div class="card-body">
-                <form autocomplete="off">
-                  <div class="form-group">
-                    <!-- array 1 field -->
-                    <label>Enter Numbers With Comma For Array1 In Square Brackets</label>
-                    <input type="text" class="form-control numArrayInput mb-2" id="task8ArrInput1"
-                      placeholder="[10, 20, 30...]" data-target="task8Wrapper">
-                    
-                     <!-- array 1 error div -->
-                    <div id="task8ArrInput1Error" class="mb-2 error"></div>
-
-                    <!-- array 2 field -->
-                    <label>Enter Numbers With Comma For Array2 In Square Brackets</label>
-                    <input type="text" class="form-control numArrayInput mb-2" id="task8ArrInput2"
-                      placeholder="[10, 20, 30...]" data-target="task8Wrapper">
-                    
-                    <!-- array 2 error div -->
-                    <div id="task8ArrInput2Error" class="mb-2 error"></div>
-
-                    <!-- target value field -->
-                    <label>Enter a number to search in the arrays</label>
-                    <input type="number" class="form-control numberInput" id="findValue" data-target="task8Wrapper">
-                  </div>
-
-                  <button type="button" class="btn btn-primary" id="searchForNumInArraysBtn" disabled>Submit</button>
-                </form>
-
-                <!-- result div -->
-                <div id="task8AlertWrapper"></div>
+  
+        <!-- tab 2 -->
+        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+  
+          <!-- problem cards -->
+          <div class="row row-cols-2">
+  
+            <!-- Task 6 : How many Seconds in hours -->
+            <div class="col" id="task6Wrapper">
+              <div class="card rounded-0">
+  
+                <div class="card-header bg-green rounded-0 font-weight-bold">
+                  Task 6: How many Seconds in hours
+                </div>
+  
+                <div class="card-body">
+                  <form autocomplete="off">
+                    <!-- enter hours field -->
+                    <div class="form-group">
+                      <label>Enter Hours</label>
+                      <input type="number" class="form-control numberInput" id="calcSecsInHoursInput"
+                        data-target="task6Wrapper">
+                    </div>
+  
+                    <button type="button" class="btn btn-primary" id="calcSecsInHoursBtn" disabled>Submit</button>
+                  </form>
+  
+                  <!-- result div -->
+                  <div id="task6AlertWrapper"></div>
+                </div>
+  
               </div>
             </div>
+  
+            <!-- Task 8 : Number exists in array -->
+            <div class="col" id="task8Wrapper">
+              <div class="card rounded-0">
+  
+                <div class="card-header bg-green rounded-0 font-weight-bold">
+                  Task 8: Number exists in array
+                </div>
+  
+                <div class="card-body">
+                  <form autocomplete="off">
+                    <div class="form-group">
+                      <!-- array 1 field -->
+                      <label>Enter Numbers With Comma For Array1 In Square Brackets</label>
+                      <input type="text" class="form-control numArrayInput mb-2" id="task8ArrInput1"
+                        placeholder="[10, 20, 30...]" data-target="task8Wrapper">
+                      
+                       <!-- array 1 error div -->
+                      <div id="task8ArrInput1Error" class="mb-2 error"></div>
+  
+                      <!-- array 2 field -->
+                      <label>Enter Numbers With Comma For Array2 In Square Brackets</label>
+                      <input type="text" class="form-control numArrayInput mb-2" id="task8ArrInput2"
+                        placeholder="[10, 20, 30...]" data-target="task8Wrapper">
+                      
+                      <!-- array 2 error div -->
+                      <div id="task8ArrInput2Error" class="mb-2 error"></div>
+  
+                      <!-- target value field -->
+                      <label>Enter a number to search in the arrays</label>
+                      <input type="number" class="form-control numberInput" id="findValue" data-target="task8Wrapper">
+                    </div>
+  
+                    <button type="button" class="btn btn-primary" id="searchForNumInArraysBtn" disabled>Submit</button>
+                  </form>
+  
+                  <!-- result div -->
+                  <div id="task8AlertWrapper"></div>
+                </div>
+              </div>
+            </div>
+  
           </div>
-
+  
         </div>
-
+  
+        <!-- tab 3 -->
+        <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">Section 3</div>
+      
       </div>
-
-      <!-- tab 3 -->
-      <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">Section 3</div>
+    </div>
     </div>
   </div>
-  <footer>
+
+  <footer class="position-absolute w-100">
   </footer>
+</main>
   <!-- jquery.min.js -->
   <script src="./content/scripts/jquery.min.js"></script>
   <!-- bootstrap.min.js -->

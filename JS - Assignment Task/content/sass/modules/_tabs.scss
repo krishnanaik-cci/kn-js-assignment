@@ -1,12 +1,16 @@
-.nav-tabs{
+.nav-pills{
   .nav-link{
-    @include radius(0);
+    border: 0;
+    background-color: transparent;
+    border-bottom: 1px solid $gray;
     padding: 10px 50px;
+
+    &.active{
+      background-color: $blue-100;
+    }
   }
 }
 
 .tab-content{
   min-height: 350px;
-  padding-top: 20px;
-  border-top: 2px solid $blue-100;
 }

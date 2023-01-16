@@ -4,7 +4,7 @@ $white:#fff;
 $black:#282828;
 $red: #E74C3C;
 $gray:#f0f0f0;
-$blue-100:#34495E;
+$blue-100:#1F618D;
 $bg-color: (
   white: $white,
   black: $black,
@@ -41,11 +41,11 @@ $grid-gutter-width: 30px !default;
 $margin: () !default;
 $margin: map-merge((), $margin);
 $margin-top: () !default;
-$margin-top: map-merge((), $margin-top);
+$margin-top: map-merge((5:5px), $margin-top);
 $margin-left: () !default;
 $margin-left: map-merge((/*15:15px*/), $margin-left);
 $margin-bottom: () !default;
-$margin-bottom: map-merge((/*24:24px*/), $margin-bottom);
+$margin-bottom: map-merge((5:5px), $margin-bottom);
 $margin-right: () !default;
 $margin-right: map-merge((/*25:25px*/), $margin-right);
 $margin-sm: () !default;

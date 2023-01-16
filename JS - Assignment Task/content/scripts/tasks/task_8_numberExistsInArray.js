@@ -2,7 +2,7 @@
 Task-6: Number exists in array
 -------------------------------------
 Created By: Krishna Naik 
-Created Date: 13-Dec-2022
+Created Date: 22-Dec-2022
 -------------------------------------*/
 const isNumberPresent = (arr1, arr2, targetVal) => {
   if (arr1.includes(targetVal) && arr2.includes(targetVal)) {
@@ -12,6 +12,6 @@ const isNumberPresent = (arr1, arr2, targetVal) => {
   } else if (arr2.includes(targetVal)) {
     return "array_two";
   } else {
-    return -2;
+    return false;
   }
 };

@@ -75,13 +75,12 @@ const globalStringInputs = (stringInput) => {
 const globalNumArrayInputs = (numArrayInput) => {
   numArrayInput.value = numArrayInput.value.replace(/[^,\[\]0-9]/g, "");
   let numArrValRes = validtNumArray(
-    numArrayInput.value,
-    numArrayInput.getAttribute("id")
+    numArrayInput.value
   );
 
   // if the array input doesnt have invalid class
   if (numArrValRes) {
-
+    console.log("return value for array validation = "+ numArrValRes);
     if (numArrValRes == "Invalid") {
       numArrayInput.classList.add("invalid");
       document.getElementById(
@@ -93,6 +92,9 @@ const globalNumArrayInputs = (numArrayInput) => {
       document.getElementById(
         numArrayInput.getAttribute("id") + "Error"
       ).textContent = "Please enter atleast 2 values in array";
+      if(!numArrayInput.classList.contains("invalid")){
+        numArrayInput.classList.add("invalid");
+      }
 
     } else {
       numArrayInput.classList.remove("invalid");
@@ -162,13 +164,12 @@ const revStr = () => {
 
 // Task 5 : Sum of 2 Numbers
 const sumOf2Numbers = () => {
-  let arrVal = document.getElementById("sumOf2NumInput").split(",");
+  let arrVal = document.getElementById("sumOf2NumInput").value.toString().replace("[", "").replace("]", "").split(",");
   let targetVal = document.getElementById("sumTarget").value;
 
   let indexVal = sumOf(arrVal, targetVal);
-
-  if (indexVal && isNaN(indexVal)) {
-    output("task5AlertWrapper", "alert-info", `${indexVal}`);
+  if (indexVal) {
+    output("task5AlertWrapper", "alert-info", `[${indexVal}]`);
   } else {
     // error message should be based on the type of error
     output("task5AlertWrapper", "alert-danger", "Target value not found");
@@ -212,7 +213,7 @@ const numExist = () => {
 
   let numInArray = isNumberPresent(arrVal1, arrVal2, target);
 
-  if (numInArray && isNaN(numInArray)) {
+  if (numInArray) {
     if (numInArray === "array_one") {
       output(
         "task8AlertWrapper",
