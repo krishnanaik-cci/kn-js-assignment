@@ -25,11 +25,19 @@ const init = () => {
   let calcSecsInHoursBtn = document.getElementById("calcSecsInHoursBtn");
   calcSecsInHoursBtn.addEventListener("click", () => calcSecsInHours());
 
+  // Task 7 variables
+  let generateRandomCardsBtn = document.getElementById("generateRandomCardsBtn");
+  generateRandomCardsBtn.addEventListener("click", () => genertRanCards());
+
   // Task 8 variables
   let searchForNumInArraysBtn = document.getElementById(
     "searchForNumInArraysBtn"
   );
   searchForNumInArraysBtn.addEventListener("click", () => numExist());
+
+
+  let analyzStringBtn = document.getElementById("analyzStringBtn");
+  analyzStringBtn.addEventListener("click", () => analyzStr())
 
   // Close alert
   document.addEventListener("click", (event) => closeAlert(event));
@@ -80,7 +88,6 @@ const globalNumArrayInputs = (numArrayInput) => {
 
   // if the array input doesnt have invalid class
   if (numArrValRes) {
-    console.log("return value for array validation = "+ numArrValRes);
     if (numArrValRes == "Invalid") {
       numArrayInput.classList.add("invalid");
       document.getElementById(
@@ -195,6 +202,16 @@ const calcSecsInHours = () => {
   }
 };
 
+// Task 7 : Create a deck of Cards
+const genertRanCards = () => {
+  let generatedCards = Deal();
+  if (generatedCards) {
+    output("task7AlertWrapper", "alert-info", `[${generatedCards}]`);
+  } else {
+    output("task7AlertWrapper", "alert-danger", "Error while generating cards");
+  }
+}
+
 // Task 8 : Number exists in array
 const numExist = () => {
   let arrVal1 = document
@@ -237,6 +254,16 @@ const numExist = () => {
     output("task8AlertWrapper", "alert-danger", "Target value not found");
   }
 };
+
+let analyzStr = () => {
+  let analyzStrInpt = document.getElementById("task9Input");
+  let charCount = analyzeString(analyzStrInpt.value);
+  if (charCount) {
+    output("task9AlertWrapper", "alert-info", charCount);
+  } else {
+    output("task9AlertWrapper", "alert-danger", "Error while generating result");
+  }
+}
 
 // onload execute init function
 window.onload = () => {
