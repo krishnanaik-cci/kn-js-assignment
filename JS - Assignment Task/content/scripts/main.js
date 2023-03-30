@@ -8,4 +8,5 @@ include("./content/scripts/tasks/task_7_createAdeckOfCards.js");
 include("./content/scripts/tasks/task_6_howManySecondsInHours.js");
 include("./content/scripts/tasks/task_8_numberExistsInArray.js");
 include("./content/scripts/tasks/task_9_analyzeString.js");
+include("./content/scripts/tasks/task_10_analyzeJson.js");
 $('.alert').alert()

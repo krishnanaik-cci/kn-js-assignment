@@ -35,9 +35,13 @@ const init = () => {
   );
   searchForNumInArraysBtn.addEventListener("click", () => numExist());
 
-
+  // Task 9 variables
   let analyzStringBtn = document.getElementById("analyzStringBtn");
-  analyzStringBtn.addEventListener("click", () => analyzStr())
+  analyzStringBtn.addEventListener("click", () => analyzStr());
+
+   // Task 10 variables
+   let analyzJsonBtn = document.getElementById("analyzJsonBtn");
+   analyzJsonBtn.addEventListener("click", () => analyzJson());
 
   // Close alert
   document.addEventListener("click", (event) => closeAlert(event));
@@ -255,13 +259,25 @@ const numExist = () => {
   }
 };
 
+// Task 9: Analyze String
 let analyzStr = () => {
   let analyzStrInpt = document.getElementById("task9Input");
   let charCount = analyzeString(analyzStrInpt.value);
   if (charCount) {
-    output("task9AlertWrapper", "alert-info", charCount);
+    output("task9AlertWrapper", "alert-info", JSON.stringify(charCount));
   } else {
     output("task9AlertWrapper", "alert-danger", "Error while generating result");
+  }
+}
+
+// Task 10 : Analyze JSON
+let analyzJson = () => {
+  let analyzJsonInpt = document.getElementById("task10Input");
+  let keyRes = analyzeJson(analyzJsonInpt.value);
+  if (keyRes) {
+    output("task10AlertWrapper", "alert-info", JSON.stringify(keyRes));
+  } else {
+    output("task10AlertWrapper", "alert-danger", "Error while generating result");
   }
 }
 

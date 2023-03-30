@@ -320,12 +320,69 @@
                   </div>
                 </div>
 
+                <!-- Task 10: Analyze String -->
+                <div class="col" id="task10Wrapper">
+                  <div class="card rounded-0">
+
+                    <div class="card-header bg-green rounded-0 font-weight-bold">
+                      Task 10 : Analyze JSON
+                    </div>
+
+                    <div class="card-body">
+                      <form autocomplete="off">
+                        <div class="form-group">
+                          <label>Enter a String in JSON format</label>
+                          <input type="text" class="form-control jsonInput" id="task10Input" 
+                            data-target="task10Wrapper">
+                        </div>
+                        <button type="button" class="btn btn-primary" id="analyzJsonBtn">Submit</button>
+                      </form>
+
+                      <div id="task10AlertWrapper"></div>
+                    </div>
+
+                  </div>
+                </div>
+
               </div>
 
             </div>
 
             <!-- tab 3 -->
-            <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">Section 3
+            <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+              <!-- problem cards -->
+              <div class="row row-cols-2">
+                <!-- Section 3 Task 11: Equilibrium -->
+                <div class="col" id="task11Wrapper">
+                  <div class="card rounded-0">
+            
+                    <div class="card-header rounded-0 font-weight-bold">
+                      Task 11: Equilibrium
+                    </div>
+            
+                    <div class="card-body">
+                      <form autocomplete="off">
+                        <div class="form-group">
+            
+                          <!-- array 1 field -->
+                          <label>Enter Numbers With Comma For Array In Square Brackets</label>
+                          <input type="text" class="form-control mb-2" id="task11Input" placeholder="[10, 20, 30...]"
+                            data-target="task11Wrapper">
+            
+                          <!-- error div -->
+                          <div id="task11InputError" class="mb-2 error"></div>
+            
+                        </div>
+            
+                        <button type="button" class="btn btn-primary" id="equilibBtn" disabled>Submit</button>
+                      </form>
+            
+                      <!-- result div -->
+                      <div id="task11AlertWrapper"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
           </div>
