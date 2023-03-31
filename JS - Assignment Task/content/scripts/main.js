@@ -9,4 +9,10 @@ include("./content/scripts/tasks/task_6_howManySecondsInHours.js");
 include("./content/scripts/tasks/task_8_numberExistsInArray.js");
 include("./content/scripts/tasks/task_9_analyzeString.js");
 include("./content/scripts/tasks/task_10_analyzeJson.js");
+include("./content/scripts/tasks/task_11_equilibrium.js");
+include("./content/scripts/tasks/task_12_formatDate.js");
+include("./content/scripts/tasks/task_13_sentenceValue.js");
+include("./content/scripts/tasks/task_14_analyzeStudentNames.js");
+include("./content/scripts/tasks/task_15_largestPalindromeProduct.js");
+include("./content/scripts/tasks/task_16_extractingWordsWithIngInflection.js");
 $('.alert').alert()

@@ -26,7 +26,9 @@ const init = () => {
   calcSecsInHoursBtn.addEventListener("click", () => calcSecsInHours());
 
   // Task 7 variables
-  let generateRandomCardsBtn = document.getElementById("generateRandomCardsBtn");
+  let generateRandomCardsBtn = document.getElementById(
+    "generateRandomCardsBtn"
+  );
   generateRandomCardsBtn.addEventListener("click", () => genertRanCards());
 
   // Task 8 variables
@@ -39,9 +41,48 @@ const init = () => {
   let analyzStringBtn = document.getElementById("analyzStringBtn");
   analyzStringBtn.addEventListener("click", () => analyzStr());
 
-   // Task 10 variables
-   let analyzJsonBtn = document.getElementById("analyzJsonBtn");
-   analyzJsonBtn.addEventListener("click", () => analyzJson());
+  // Task 10 variables
+  let analyzJsonBtn = document.getElementById("analyzJsonBtn");
+  analyzJsonBtn.addEventListener("click", () => analyzJson());
+
+  // Task 11 variables
+  let equilibBtn = document.getElementById("equilibBtn");
+  equilibBtn.addEventListener("click", () => equilib());
+
+  let numArrayWithNegInput = document.getElementById("task11Input");
+
+  numArrayWithNegInput.addEventListener("input", function () {
+    globalNumWithNegArrayInputs(this);
+  });
+
+  // Task 12 variables
+  let dateFormatBtn = document.getElementById("dateFormatBtn");
+  dateFormatBtn.addEventListener("click", () => dateFormat());
+
+  let dateField = document.getElementById("task12Input");
+
+  // Task 13 variables
+  let sentenceValBtn = document.getElementById("sentenceValBtn");
+  sentenceValBtn.addEventListener("click", () => sentenceVal());
+
+  // Task 14 variables
+  let duplicateNamesBtn = document.getElementById("duplicateNamesBtn");
+  duplicateNamesBtn.addEventListener("click", () => duplicateNames());
+
+  // Task 15 variables
+  let getLargestPalindromeBtn = document.getElementById(
+    "getLargestPalindromeBtn"
+  );
+  getLargestPalindromeBtn.addEventListener("click", () => findLargestPalindrome());
+
+  //Task 16 variable
+  let getIngBtn = document.getElementById("getIngBtn");
+  getIngBtn.addEventListener("click", () => extrIngInflection());
+
+  // Date field
+  dateField.addEventListener("input", function () {
+    enableBtn(document.getElementById(dateField.getAttribute("data-target")));
+  });
 
   // Close alert
   document.addEventListener("click", (event) => closeAlert(event));
@@ -50,13 +91,18 @@ const init = () => {
   let numberInput = document.getElementsByClassName("numberInput");
   let onlyStringInput = document.getElementsByClassName("onlyStringInput");
   let numArrayInput = document.getElementsByClassName("numArrayInput");
-  
+  let stringArrayInput = document.getElementById("task14Input");
+
   // Global string input variables
   for (var i = 0; i < onlyStringInput.length; i++) {
     onlyStringInput[i].addEventListener("input", function () {
       globalStringInputs(this);
     });
   }
+
+  stringArrayInput.addEventListener("input", function () {
+    stringArrayInputs(this);
+  });
 
   // Global numeric array input variables
   for (let i = 0; i < numArrayInput.length; i++) {
@@ -80,50 +126,80 @@ const globalNumInputs = (numInput) => {
 };
 
 const globalStringInputs = (stringInput) => {
-  stringInput.value = stringInput.value.replace(/[^a-zA-Z]/g, "");
+  stringInput.value = stringInput.value.replace(/[^a-zA-Z ]/g, "");
   enableBtn(document.getElementById(stringInput.getAttribute("data-target")));
 }
 
+// function to show the validation messages for array input fields
 const globalNumArrayInputs = (numArrayInput) => {
   numArrayInput.value = numArrayInput.value.replace(/[^,\[\]0-9]/g, "");
+
+  // validtNumArray validates array input values
   let numArrValRes = validtNumArray(
     numArrayInput.value
   );
 
+  globalArrayValidationCheck('num',numArrayInput,numArrValRes);
+
+};
+
+// function to show the validation messages for array input fields
+const globalNumWithNegArrayInputs = (numArrayInput) => {
+  numArrayInput.value = numArrayInput.value.replace(/[^,[\-\]\[\]0-9]/g, "");
+
+  // validtNumArray validates array input values
+  let numArrValRes = validtNumArray(
+    numArrayInput.value
+  );
+
+  globalArrayValidationCheck('num',numArrayInput,numArrValRes);
+
+};
+
+// function to show the validation messages for array input fields
+const stringArrayInputs = (stringArrayInput) => {
+  stringArrayInput.value = stringArrayInput.value.replace(/[^,\[\]a-zA-Z ]/g, "");
+
+  // validtNumArray validates array input values
+  let stringArrValRes = validtStringArray(
+    stringArrayInput.value
+  );
+
+  globalArrayValidationCheck('str',stringArrayInput,stringArrValRes);
+};
+
+function globalArrayValidationCheck(arrayType,arrayInput, numValrs) {
   // if the array input doesnt have invalid class
-  if (numArrValRes) {
-    if (numArrValRes == "Invalid") {
-      numArrayInput.classList.add("invalid");
+  if (numValrs) {
+    if (numValrs == "Invalid") {
+      arrayInput.classList.add("invalid");
       document.getElementById(
-        numArrayInput.getAttribute("id") + "Error"
+        arrayInput.getAttribute("id") + "Error"
       ).textContent =
-        "Please enter array correctly in square brackets e.g [1,2,3]";
-
-    } else if (numArrValRes == "Short") {
+      arrayType == 'num'? "Please enter array correctly in square brackets e.g [1,2,3]" : "Please enter names correctly in square brackets e.g [First Last,First Middle Last] (do not add spacing before or after comma)";
+    } else if (numValrs == "Short") {
       document.getElementById(
-        numArrayInput.getAttribute("id") + "Error"
+        arrayInput.getAttribute("id") + "Error"
       ).textContent = "Please enter atleast 2 values in array";
-      if(!numArrayInput.classList.contains("invalid")){
-        numArrayInput.classList.add("invalid");
+      if (!arrayInput.classList.contains("invalid")) {
+        arrayInput.classList.add("invalid");
       }
-
     } else {
-      numArrayInput.classList.remove("invalid");
+      arrayInput.classList.remove("invalid");
       document.getElementById(
-        numArrayInput.getAttribute("id") + "Error"
+        arrayInput.getAttribute("id") + "Error"
       ).textContent = "";
     }
-
   } else {
-
-    numArrayInput.classList.remove("invalid");
+    arrayInput.classList.remove("invalid");
     document.getElementById(
-      numArrayInput.getAttribute("id") + "Error"
+      arrayInput.getAttribute("id") + "Error"
     ).textContent = "";
-
   }
-  enableBtn(document.getElementById(numArrayInput.getAttribute("data-target")));
-};
+  enableBtn(
+    document.getElementById(arrayInput.getAttribute("data-target"))
+  );
+}
 
 // Task 1 :Calculate Age in Days
 const calcAgeInDays = () => {
@@ -278,6 +354,94 @@ let analyzJson = () => {
     output("task10AlertWrapper", "alert-info", JSON.stringify(keyRes));
   } else {
     output("task10AlertWrapper", "alert-danger", "Error while generating result");
+  }
+}
+
+// Task 11 : Equilibrium
+const equilib = () => {
+  
+  let arrVal = document
+  .getElementById("task11Input")
+  .value.replace(/\[/g, "")
+  .replace(/\]/g, "")
+  .split(",");
+
+  let equilibRes = solution(arrVal);
+
+  if (equilibRes > 0) {
+    output("task11AlertWrapper", "alert-info", equilibRes);
+  } else {
+    output("task11AlertWrapper", "alert-danger", equilibRes);
+  }
+}
+
+// Task 12 : Format Date
+const dateFormat = () => {
+  let newDateFormat = formatDate(document.getElementById("task12Input").value);
+  if (newDateFormat) {
+    output(
+      "task12AlertWrapper",
+      "alert-info",
+      newDateFormat
+    );
+  } else {
+    output("task12AlertWrapper", "alert-danger", "Connot format date");
+  }
+}
+
+//Task 13 : Sentence Value
+const sentenceVal = () => {
+  let sentence = document.getElementById("task13Input").value;
+  let sentenceValCnt =  sentenceValCount(sentence);
+  console.log(sentenceValCnt);
+  if (sentenceValCnt) {
+    output("task13AlertWrapper", "alert-info", `Value of '${sentence}' is ${sentenceValCnt}`);
+  } else {
+    output("task13AlertWrapper", "alert-danger", "No value found");
+  }
+}
+
+//Task 14 : Analyze Student Names
+const duplicateNames = () => {
+
+  let namesArray =  document
+  .getElementById("task14Input")
+  .value.replace(/\[/g, "")
+  .replace(/\]/g, "")
+  .split(",");
+  
+  let duplicateSubNams = JSON.stringify(analyzeStudentNames(namesArray));
+
+  if (duplicateSubNams) {
+    output("task14AlertWrapper", "alert-info", duplicateSubNams);
+  } else {
+    output("task14AlertWrapper", "alert-danger", "Error while fetching the result");
+  }
+}
+
+//Task 15 :Largest Palindrome Product
+const findLargestPalindrome = () => {
+  let largstPalindrome = largestPalindromProduct();
+  if (largstPalindrome) {
+    output("task15AlertWrapper", "alert-info", largstPalindrome);
+  } else {
+    output("task15AlertWrapper", "alert-danger", "Error while fetching the result");
+  }
+}
+
+//Task 16: Extracting words with "ing" Inflection
+const extrIngInflection = () => {
+  let ingEnflectedWords = extractWordsWithIngInflection(document.getElementById("task16Input").value);
+
+  console.log(ingEnflectedWords);
+  if (ingEnflectedWords) {
+    output(
+      "task16AlertWrapper",
+      "alert-info",
+      `[${ingEnflectedWords}]`
+    );
+  } else {
+    output("task16AlertWrapper", "alert-danger", "No words found");
   }
 }
 

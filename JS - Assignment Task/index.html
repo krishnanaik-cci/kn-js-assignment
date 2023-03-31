@@ -244,7 +244,8 @@
                     </div>
 
                     <div class="card-body">
-                      <button type="button" class="btn btn-primary" id="generateRandomCardsBtn">Generate 5 random cards</button>
+                      <button type="button" class="btn btn-primary" id="generateRandomCardsBtn">Generate 5 random
+                        cards</button>
 
                       <!-- result div -->
                       <div id="task7AlertWrapper"></div>
@@ -308,7 +309,7 @@
                       <form autocomplete="off">
                         <div class="form-group">
                           <label>Enter a String</label>
-                          <input type="text" class="form-control onlyStringInput" id="task9Input" 
+                          <input type="text" class="form-control onlyStringInput" id="task9Input"
                             data-target="task9Wrapper">
                         </div>
                         <button type="button" class="btn btn-primary" id="analyzStringBtn" disabled>Submit</button>
@@ -320,7 +321,7 @@
                   </div>
                 </div>
 
-                <!-- Task 10: Analyze String -->
+                <!-- Task 10: Analyze JSON -->
                 <div class="col" id="task10Wrapper">
                   <div class="card rounded-0">
 
@@ -332,7 +333,7 @@
                       <form autocomplete="off">
                         <div class="form-group">
                           <label>Enter a String in JSON format</label>
-                          <input type="text" class="form-control jsonInput" id="task10Input" 
+                          <input type="text" class="form-control jsonInput" id="task10Input"
                             data-target="task10Wrapper">
                         </div>
                         <button type="button" class="btn btn-primary" id="analyzJsonBtn">Submit</button>
@@ -355,30 +356,174 @@
                 <!-- Section 3 Task 11: Equilibrium -->
                 <div class="col" id="task11Wrapper">
                   <div class="card rounded-0">
-            
+
                     <div class="card-header rounded-0 font-weight-bold">
                       Task 11: Equilibrium
                     </div>
-            
+
                     <div class="card-body">
                       <form autocomplete="off">
                         <div class="form-group">
-            
+
                           <!-- array 1 field -->
                           <label>Enter Numbers With Comma For Array In Square Brackets</label>
                           <input type="text" class="form-control mb-2" id="task11Input" placeholder="[10, 20, 30...]"
                             data-target="task11Wrapper">
-            
+
                           <!-- error div -->
                           <div id="task11InputError" class="mb-2 error"></div>
-            
+
                         </div>
-            
+
                         <button type="button" class="btn btn-primary" id="equilibBtn" disabled>Submit</button>
                       </form>
-            
+
                       <!-- result div -->
                       <div id="task11AlertWrapper"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Section 3 Task 12: Format Date -->
+                <div class="col" id="task12Wrapper">
+                  <div class="card rounded-0">
+
+                    <div class="card-header rounded-0 font-weight-bold">
+                      Task 5 : Format Date
+                    </div>
+
+                    <div class="card-body">
+                      <form autocomplete="off">
+                        <div class="form-group">
+
+                          <label>Enter a date</label>
+                          <!-- Date Picker -->
+                          <div class="form-group mb-4">
+                            <div class="date input-group">
+                              <input type="date" class="form-control dateField" id="task12Input"
+                                data-target="task12Wrapper">
+                            </div>
+                          </div>
+                          <!-- // Date Picker -->
+                          <!-- error div -->
+                          <div id="task12InputError" class="mb-2 error"></div>
+
+                        </div>
+
+                        <button type="button" class="btn btn-primary" id="dateFormatBtn" disabled>Submit</button>
+                      </form>
+
+                      <!-- result div -->
+                      <div id="task12AlertWrapper"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Section 3 Task 13: Sentence Value -->
+                <div class="col" id="task13Wrapper">
+                  <div class="card rounded-0">
+
+                    <div class="card-header rounded-0 font-weight-bold">
+                      Task 13: Sentence Value
+                    </div>
+
+                    <div class="card-body">
+                      <form autocomplete="off">
+                        <div class="form-group">
+
+                          <!-- array 1 field -->
+                          <label>Enter a string</label>
+                          <input type="text" class="form-control onlyStringInput mb-2" id="task13Input"
+                            data-target="task13Wrapper">
+
+                          <!-- error div -->
+                          <div id="task13InputError" class="mb-2 error"></div>
+
+                        </div>
+
+                        <button type="button" class="btn btn-primary" id="sentenceValBtn" disabled>Submit</button>
+                      </form>
+
+                      <!-- result div -->
+                      <div id="task13AlertWrapper"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Section 3 Task 14: Analyze Student Names -->
+                <div class="col" id="task14Wrapper">
+                  <div class="card rounded-0">
+
+                    <div class="card-header rounded-0 font-weight-bold">
+                      Task 14: Analyze Student Names
+                    </div>
+
+                    <div class="card-body">
+                      <form autocomplete="off">
+                        <div class="form-group">
+
+                          <label>Enter comma saperated names</label>
+                          <input type="text" class="form-control mb-2 stringArrayInput"
+                            placeholder="[First Middle Last / First Last]" id="task14Input" data-target="task14Wrapper">
+
+                          <!-- error div -->
+                          <div id="task14InputError" class="mb-2 error"></div>
+
+                        </div>
+
+                        <button type="button" class="btn btn-primary" id="duplicateNamesBtn" disabled>Submit</button>
+                      </form>
+
+                      <!-- result div -->
+                      <div id="task14AlertWrapper"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Section 3 Task 15: Largest Palindrome Product -->
+                <div class="col" id="task15Wrapper">
+                  <div class="card rounded-0">
+
+                    <div class="card-header bg-green rounded-0 font-weight-bold">
+                      Task 15 : Largest Palindrome Product
+                    </div>
+
+                    <div class="card-body">
+                      <button type="button" class="btn btn-primary" id="getLargestPalindromeBtn">Largest Palindrome of two 3-digit numbers</button>
+
+                      <!-- result div -->
+                      <div id="task15AlertWrapper"></div>
+                    </div>
+
+                  </div>
+                </div>
+
+                <!-- Section 3 Task 16: Extracting words with "ing" Inflection -->
+                <div class="col" id="task16Wrapper">
+                  <div class="card rounded-0">
+
+                    <div class="card-header rounded-0 font-weight-bold">
+                      Task 16: Extracting words with "ing" Inflection
+                    </div>
+
+                    <div class="card-body">
+                      <form autocomplete="off">
+                        <div class="form-group">
+
+                          <label>Enter a string</label>
+                          <input type="text" class="form-control mb-2 onlyStringInput" id="task16Input"
+                            data-target="task16Wrapper">
+
+                          <!-- error div -->
+                          <div id="task16InputError" class="mb-2 error"></div>
+
+                        </div>
+
+                        <button type="button" class="btn btn-primary" id="getIngBtn" disabled>Submit</button>
+                      </form>
+
+                      <!-- result div -->
+                      <div id="task16AlertWrapper"></div>
                     </div>
                   </div>
                 </div>
