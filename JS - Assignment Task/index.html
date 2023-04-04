@@ -179,7 +179,7 @@
                           <!-- array field -->
                           <label>Enter Numbers With Comma In Square Brackets</label>
                           <input type="text" class="form-control numArrayInput" id="sumOf2NumInput"
-                            placeholder="[10, 20, 30...]" data-target="task5Wrapper">
+                            placeholder="[10,20,30...]" data-target="task5Wrapper">
 
                           <!-- array error div -->
                           <div id="sumOf2NumInputError" class="mb-2 error"></div>
@@ -333,10 +333,13 @@
                       <form autocomplete="off">
                         <div class="form-group">
                           <label>Enter a String in JSON format</label>
-                          <input type="text" class="form-control jsonInput" id="task10Input"
+                          <input type="text" class="form-control" id="task10Input"
                             data-target="task10Wrapper">
+
+                          <!-- error div -->
+                          <div id="task10InputError" class="mb-2 error"></div>
                         </div>
-                        <button type="button" class="btn btn-primary" id="analyzJsonBtn">Submit</button>
+                        <button type="button" class="btn btn-primary" id="analyzJsonBtn" disabled>Submit</button>
                       </form>
 
                       <div id="task10AlertWrapper"></div>
@@ -544,7 +547,7 @@
   <script src="./content/scripts/bootstrap.min.js"></script>
   <!-- custom script.min.js -->
   <script src="./content/scripts/include.js"></script>
-  <script src="./content/scripts/ui/ui.js" type="module"></script>
+  <script src="./content/scripts/common/ui.js" type="module"></script>
   <script src="./content/scripts/main.js" type="module"></script>
 </body>
 

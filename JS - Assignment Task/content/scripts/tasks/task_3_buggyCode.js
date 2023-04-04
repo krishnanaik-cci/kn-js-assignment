@@ -5,5 +5,5 @@ Created By: Krishna Naik
 Created Date: 16-Nov-2022
 -------------------------------------*/
 const cubes = (val) => {
-  return val ** 3;
+  return val ** CUBE;
 };

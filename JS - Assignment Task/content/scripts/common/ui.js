@@ -1,4 +1,4 @@
-include("./content/scripts/output/output.js");
+// include("./content/scripts/output/output.js");
 
 const init = () => {
   // Task 1 variables
@@ -92,6 +92,7 @@ const init = () => {
   let onlyStringInput = document.getElementsByClassName("onlyStringInput");
   let numArrayInput = document.getElementsByClassName("numArrayInput");
   let stringArrayInput = document.getElementById("task14Input");
+  let jsonInput = document.getElementById("task10Input");
 
   // Global string input variables
   for (var i = 0; i < onlyStringInput.length; i++) {
@@ -102,6 +103,10 @@ const init = () => {
 
   stringArrayInput.addEventListener("input", function () {
     stringArrayInputs(this);
+  });
+
+  jsonInput.addEventListener("input", function () {
+    jsonFormatInput(this);
   });
 
   // Global numeric array input variables
@@ -119,6 +124,39 @@ const init = () => {
     });
   }
 };
+
+const jsonFormatInput = (jsonInpt) => {
+  let jsonFormatValRes = validtJsonObject(jsonInpt.value);
+ // if the array input doesnt have invalid class
+ if (jsonFormatValRes) {
+  if (jsonFormatValRes == INVALID) {
+    jsonInpt.classList.add("invalid");
+    document.getElementById(
+      jsonInpt.getAttribute("id") + "Error"
+    ).textContent = "Please enter object correctly e.g {key:value, key:value}";
+  } else if (jsonFormatValRes == SHORT) {
+    document.getElementById(
+      jsonInpt.getAttribute("id") + "Error"
+    ).textContent = "Please enter atleast 2 object";
+    if (!jsonInpt.classList.contains("invalid")) {
+      jsonInpt.classList.add("invalid");
+    }
+  } else {
+    jsonInpt.classList.remove("invalid");
+    document.getElementById(
+      jsonInpt.getAttribute("id") + "Error"
+    ).textContent = "";
+  }
+} else {
+  jsonInpt.classList.remove("invalid");
+  document.getElementById(
+    jsonInpt.getAttribute("id") + "Error"
+  ).textContent = "";
+}
+enableBtn(
+  document.getElementById(jsonInpt.getAttribute("data-target"))
+);
+}
 
 const globalNumInputs = (numInput) => {
   numInput.value = numInput.value.replace(/[^0-9]/g, "");
@@ -171,13 +209,13 @@ const stringArrayInputs = (stringArrayInput) => {
 function globalArrayValidationCheck(arrayType,arrayInput, numValrs) {
   // if the array input doesnt have invalid class
   if (numValrs) {
-    if (numValrs == "Invalid") {
+    if (numValrs == INVALID) {
       arrayInput.classList.add("invalid");
       document.getElementById(
         arrayInput.getAttribute("id") + "Error"
       ).textContent =
       arrayType == 'num'? "Please enter array correctly in square brackets e.g [1,2,3]" : "Please enter names correctly in square brackets e.g [First Last,First Middle Last] (do not add spacing before or after comma)";
-    } else if (numValrs == "Short") {
+    } else if (numValrs == SHORT) {
       document.getElementById(
         arrayInput.getAttribute("id") + "Error"
       ).textContent = "Please enter atleast 2 values in array";
@@ -252,7 +290,7 @@ const revStr = () => {
 // Task 5 : Sum of 2 Numbers
 const sumOf2Numbers = () => {
   let arrVal = document.getElementById("sumOf2NumInput").value.toString().replace("[", "").replace("]", "").split(",");
-  let targetVal = document.getElementById("sumTarget").value;
+  let targetVal = parseInt(document.getElementById("sumTarget").value);
 
   let indexVal = sumOf(arrVal, targetVal);
   if (indexVal) {
@@ -448,6 +486,17 @@ const extrIngInflection = () => {
 // onload execute init function
 window.onload = () => {
   init();
+};
+
+// output ui
+const output = (alertID, alertType, outputMessage) => {
+  document.getElementById(alertID).innerHTML = `
+  <div class="alert ${alertType} show fade ${alertID.replace("Wrapper", "")} mt-4 mb-2" role="alert">
+  <strong>${outputMessage}</strong>
+  <button type="button" class="close" id="${alertID.replace("Wrapper", "")}" aria-label="Close">
+    &times;
+  </button>
+  </div>`;
 };
 
 // close alert modal

@@ -1,4 +1,5 @@
-include("./content/scripts/validations/validate.js");
+include("./content/scripts/common/validate.js");
+include("./content/scripts/common/variables.js");
 include("./content/scripts/tasks/task_1_calculateAgeInDays.js");
 include("./content/scripts/tasks/task_2_calculateAgeInSeconds.js");
 include("./content/scripts/tasks/task_3_buggyCode.js");
