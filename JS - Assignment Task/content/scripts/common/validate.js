@@ -24,23 +24,22 @@ const validtNumArray = (value) => {
 
 const validtJsonObject = (value) => {
   // Perform validation only when you enter numbers & when input is not empty
-  if (value.match(/[a-zA-Z]/g) == null && value) {
-    if (
-      value.charAt(0) != "{" ||
-      value.charAt(value.length - 1) != "}" ||
-      value.match(/,}/g) ||
-      value.indexOf("{") != value.lastIndexOf("{") ||
-      value.indexOf("}") != value.lastIndexOf("}") ||
-      value == "{}"
-    ) {
-      return INVALID;
-    } else if (value.split(",").length < 2) {
-      return SHORT;
-    } else {
+  try {
+    if(value.indexOf("{") < 0 && value != ""){
       return true;
+    }else if(value.indexOf("}") < 0 && value != ""){
+      return true;
+    }else if(value == "" && value.indexOf("}") < 0){
+      return false;
+    }else{
+      JSON.parse(value);
     }
-  } else {
-    return false;
+  } catch (e) {
+    if(e.message){
+      return true;
+    }else{
+      return false;
+    }
   }
 };
 
@@ -59,7 +58,6 @@ const validtStringArray = (value) => {
   //if any of the strins in array doesnt include space
   // Perform validation only when you enter numbers & when input is not empty
   if (value.match(/[0-9]/g) == null && value) {
-    console.log(value);
     if (
       value.charAt(0) != "[" ||
       value.charAt(0).match(/(\[)/g) == null ||
@@ -87,7 +85,6 @@ const validtStringArray = (value) => {
 // Enable button if field is not empty
 const enableBtn = (parentID) => {
 
-  // parentID.querySelector("button").removeAttribute("disabled");
   const onlyInputs = parentID.querySelectorAll(".form-control");
   let isEmpty = false;
 

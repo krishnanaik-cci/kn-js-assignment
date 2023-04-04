@@ -6,6 +6,6 @@ Created Date: 30-03-2023
 -------------------------------------*/
 const analyzeJson = (obj) =>{
   if (obj) {
-    return Object.keys(JSON.parse(obj));
+    return Object.keys(JSON.parse(obj)).join("<br>");
   }
 }

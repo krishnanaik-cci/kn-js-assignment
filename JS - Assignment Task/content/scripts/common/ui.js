@@ -126,27 +126,13 @@ const init = () => {
 };
 
 const jsonFormatInput = (jsonInpt) => {
-  let jsonFormatValRes = validtJsonObject(jsonInpt.value);
+  let jsonFormatValRes = validtJsonObject(jsonInpt.value.replace(/{^,\{\}a-zA-Z ]/g, ""));
  // if the array input doesnt have invalid class
  if (jsonFormatValRes) {
-  if (jsonFormatValRes == INVALID) {
     jsonInpt.classList.add("invalid");
     document.getElementById(
       jsonInpt.getAttribute("id") + "Error"
     ).textContent = "Please enter object correctly e.g {key:value, key:value}";
-  } else if (jsonFormatValRes == SHORT) {
-    document.getElementById(
-      jsonInpt.getAttribute("id") + "Error"
-    ).textContent = "Please enter atleast 2 object";
-    if (!jsonInpt.classList.contains("invalid")) {
-      jsonInpt.classList.add("invalid");
-    }
-  } else {
-    jsonInpt.classList.remove("invalid");
-    document.getElementById(
-      jsonInpt.getAttribute("id") + "Error"
-    ).textContent = "";
-  }
 } else {
   jsonInpt.classList.remove("invalid");
   document.getElementById(
@@ -389,7 +375,7 @@ let analyzJson = () => {
   let analyzJsonInpt = document.getElementById("task10Input");
   let keyRes = analyzeJson(analyzJsonInpt.value);
   if (keyRes) {
-    output("task10AlertWrapper", "alert-info", JSON.stringify(keyRes));
+    output("task10AlertWrapper", "alert-info", keyRes);
   } else {
     output("task10AlertWrapper", "alert-danger", "Error while generating result");
   }
@@ -431,7 +417,6 @@ const dateFormat = () => {
 const sentenceVal = () => {
   let sentence = document.getElementById("task13Input").value;
   let sentenceValCnt =  sentenceValCount(sentence);
-  console.log(sentenceValCnt);
   if (sentenceValCnt) {
     output("task13AlertWrapper", "alert-info", `Value of '${sentence}' is ${sentenceValCnt}`);
   } else {
@@ -471,7 +456,6 @@ const findLargestPalindrome = () => {
 const extrIngInflection = () => {
   let ingEnflectedWords = extractWordsWithIngInflection(document.getElementById("task16Input").value);
 
-  console.log(ingEnflectedWords);
   if (ingEnflectedWords) {
     output(
       "task16AlertWrapper",

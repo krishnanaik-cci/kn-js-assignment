@@ -50,30 +50,23 @@ const analyzeStudentNames = (studNames) => {
         lastName = splitName[2].toLowerCase();
       }
 
-      if (
-        fullname == fulName &&
-        !Object.values(fullNameDuplicates).includes(fullname)
+      if (fullname == fulName && !Object.values(fullNameDuplicates).includes(fullname)
       ) {
         duplicateFullNameCount++;
       }
 
       if (
-        fname == firstName &&
-        !Object.values(fNameDuplicates).includes(firstName)
+        fname == firstName && !Object.values(fNameDuplicates).includes(firstName)
       ) {
         duplicateFirstNameCount++; //all above conditions are true
       }
 
-      if (
-        mname == middleName &&
-        !Object.values(mNameDuplicates).includes(middleName)
+      if (mname == middleName && !Object.values(mNameDuplicates).includes(middleName)
       ) {
         duplicateMiddleNameCount++;
       }
 
-      if (
-        lname == lastName &&
-        !Object.values(lNameDuplicates).includes(lastName)
+      if (lname == lastName && !Object.values(lNameDuplicates).includes(lastName)
       ) {
         duplicateLastNameCount++;
       }

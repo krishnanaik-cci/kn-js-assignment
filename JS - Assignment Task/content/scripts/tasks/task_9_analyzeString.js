@@ -5,7 +5,8 @@ Created By: Krishna Naik
 Created Date: 30-03-2023
 -------------------------------------*/
 const analyzeString = (str) => {
-  let strVal = str.toLowerCase();
+  let strVal = str.toLowerCase().replaceAll(" ", "");
+  console.log("strVal = "+strVal);
 
   let duplicateCharObj = {};
   let uniqCharacters = "";
@@ -42,7 +43,7 @@ const analyzeString = (str) => {
     "uniqueCharacters":uniqCharacters,
     "uniqueCharacterCount":uniqCharCount,
     "duplicateCharacters":JSON.parse(sortedCharacters).join(""),
-    "duplicateCharacterCount":JSON.parse(sortedCharacters).length
+    "duplicateCharacterCount":JSON.parse(sortedCharacters).join("").length
   }
 
   return result;

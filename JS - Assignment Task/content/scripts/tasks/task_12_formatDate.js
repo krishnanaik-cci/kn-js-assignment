@@ -5,7 +5,6 @@ Created By: Krishna Naik
 Created Date: 31-03-2023
 -------------------------------------*/
 const getOrdinal = (dayValue) => {
-  console.log("dayeValue = "+ dayValue);
   if (dayValue > 3 && dayValue < 21) return "th";
   switch (dayValue % 10) {
     case 1:
