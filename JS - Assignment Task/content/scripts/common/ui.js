@@ -84,6 +84,20 @@ const init = () => {
     enableBtn(document.getElementById(dateField.getAttribute("data-target")));
   });
 
+  const disablePreviousDates = () => {
+    var todaysDate = new Date();
+    var month = todaysDate.getMonth() + 1;
+    var day = todaysDate.getDate();
+    var year = todaysDate.getFullYear();
+
+    if (month < 10) month = "0" + month.toString();
+    if (day < 10) day = "0" + day.toString();
+    var maxDate = year + "-" + month + "-" + day;
+    dateField.setAttribute("min", maxDate);
+  };
+
+  disablePreviousDates();
+
   // Close alert
   document.addEventListener("click", (event) => closeAlert(event));
 

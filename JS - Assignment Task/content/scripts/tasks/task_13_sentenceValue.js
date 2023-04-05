@@ -10,5 +10,6 @@ const sentenceValCount = (val) => {
   for(let i = 0; i<strValue.length; i++){
     sum += (strValue[i]).charCodeAt(0) - 86;
   }  
+
   return sum;
 }

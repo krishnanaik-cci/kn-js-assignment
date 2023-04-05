@@ -4,47 +4,23 @@ Task-9: Analyze String
 Created By: Krishna Naik 
 Created Date: 30-03-2023
 -------------------------------------*/
-const analyzeString = (str) => {
-  let strVal = str.toLowerCase().replaceAll(" ", "");
-  console.log("strVal = "+strVal);
+const analyzeString = (stringVal) => {
+  let stringValue = stringVal.toLowerCase().replaceAll(" ", "");
+  let charObj = {};
+  let uniqCharacters = "", sortedDuplicateCharacters = "";
 
-  let duplicateCharObj = {};
-  let uniqCharacters = "";
-  let uniqCharCount = 0;
-
-  for (let i = 0; i < strVal.length; i++) {
-    let duplicateCharCount = 0;
-    for (let k = i + 1; k < strVal.length; k++) {
-      if (
-        strVal[i] == strVal[k] &&
-        !duplicateCharObj.hasOwnProperty(strVal[i])
-      ) {
-        duplicateCharCount++;
-      }
-    }
-
-    if (duplicateCharCount > 0) {
-      duplicateCharObj[strVal[i]] = duplicateCharCount
-        ? duplicateCharCount + 1
-        : 0;
-    } else if (!duplicateCharObj.hasOwnProperty(strVal[i])) {
-      uniqCharacters += strVal[i];
-      uniqCharCount++;
-    }
+  // loop through all the characters and store them in a charObj along with the count based on thire appearance
+  for (let i = 0; i < stringValue.length; i++) {
+    charObj[stringValue[i]] = charObj.hasOwnProperty(stringValue[i]) ? charObj[stringValue[i]] + 1 : 1;
   }
 
-  let sortedCharacters = JSON.stringify(
-    Object.keys(duplicateCharObj).sort(function (a, b) {
-      return duplicateCharObj[b] - duplicateCharObj[a];
-    })
-  );
-
-  result = {
-    "uniqueCharacters":uniqCharacters,
-    "uniqueCharacterCount":uniqCharCount,
-    "duplicateCharacters":JSON.parse(sortedCharacters).join(""),
-    "duplicateCharacterCount":JSON.parse(sortedCharacters).join("").length
-  }
-
+  // sort the duplicate characters using Object.keys(charObj).sort((a, b) => charObj[b] - charObj[a]) filter method will get only the duplicate characters (characters whoies count > 1) 
+  sortedDuplicateCharacters = Object.keys(charObj).sort((a, b) => charObj[b] - charObj[a]).filter((key) => charObj[key] > 1).join("");
+  
+  // this will give us only the uniq characters
+  uniqCharacters = Object.keys(charObj).filter((key) => charObj[key] == 1).join("");
+  
+  result = {"uniqueCharacters":uniqCharacters, "uniqueCharacterCount":uniqCharacters.length, "duplicateCharacters":sortedDuplicateCharacters, "duplicateCharacterCount":sortedDuplicateCharacters.length};
+  
   return result;
 };

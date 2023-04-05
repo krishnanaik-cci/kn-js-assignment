@@ -20,8 +20,5 @@ const getOrdinal = (dayValue) => {
 
 const formatDate = (dateValue) => {
   let date = new Date(dateValue);
-  let month = date.toLocaleString("default", { month: "short" });
-  let year = date.getFullYear();
-
-  return `${date.getDate()}${getOrdinal(date.getDate())} ${month} ${year}`;
+  return `${date.getDate()}${getOrdinal(date.getDate())} ${date.toLocaleString("default", { month: "short" })} ${date.getFullYear()}`;
 };
