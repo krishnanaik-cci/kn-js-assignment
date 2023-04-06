@@ -20,7 +20,7 @@ const analyzeString = (stringVal) => {
   // this will give us only the uniq characters
   uniqCharacters = Object.keys(charObj).filter((key) => charObj[key] == 1).join("");
   
-  result = {"uniqueCharacters":uniqCharacters, "uniqueCharacterCount":uniqCharacters.length, "duplicateCharacters":sortedDuplicateCharacters, "duplicateCharacterCount":sortedDuplicateCharacters.length};
+  result = {"uniqueCharacters": uniqCharacters, "uniqueCharacterCount": uniqCharacters.length, "duplicateCharacters": sortedDuplicateCharacters, "duplicateCharacterCount": sortedDuplicateCharacters.length}
   
-  return result;
+  return JSON.stringify(result, null, 3);
 };

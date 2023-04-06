@@ -378,7 +378,7 @@ let analyzStr = () => {
   let analyzStrInpt = document.getElementById("task9Input");
   let charCount = analyzeString(analyzStrInpt.value);
   if (charCount) {
-    output("task9AlertWrapper", "alert-info", JSON.stringify(charCount));
+    output("task9AlertWrapper", "alert-info", charCount);
   } else {
     output("task9AlertWrapper", "alert-danger", "Error while generating result");
   }
