@@ -45,8 +45,8 @@ const Deal = () => {
   // display 5 results
   for (let i = 0; i < 5; i++) {
     let newCard = randomCards.includes(`${deck[i].Value} of ${deck[i].Suit}`);
+    //if its true means the value is already present so dont push the same value in the array
     if (!newCard) {
-      //if its true means the value is already present so dont push the same value in the array
       randomCards.push(`${deck[i].Value} of ${deck[i].Suit}`);
     }
   }
