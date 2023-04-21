@@ -16,4 +16,4 @@ include("./content/scripts/tasks/task_13_sentenceValue.js");
 include("./content/scripts/tasks/task_14_analyzeStudentNames.js");
 include("./content/scripts/tasks/task_15_largestPalindromeProduct.js");
 include("./content/scripts/tasks/task_16_extractingWordsWithIngInflection.js");
-$('.alert').alert()
+// $('.alert').alert()

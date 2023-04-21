@@ -31,25 +31,31 @@ for (let i = 0; i < suits.length; i++) {
   }
 }
 
+let deckSize = deck.length;
 const Deal = () => {
   let randomCards = [];
 
   // shuffle the cards
-  for (let i = deck.length - 1; i > 0; i--) {
+  for (let i = deckSize - 1; i > 0; i--) {
     let j = Math.floor(Math.random() * i);
     let temp = deck[i];
     deck[i] = deck[j];
     deck[j] = temp;
   }
 
-  // display 5 results
-  for (let i = 0; i < 5; i++) {
-    let newCard = randomCards.includes(`${deck[i].Value} of ${deck[i].Suit}`);
-    //if its true means the value is already present so dont push the same value in the array
-    if (!newCard) {
+  // How shuffling will happen
+  if (deckSize > 5) {
+    // display 5 results (bug noticed as per code after adding 5 records it shouldnt display more cards)
+    for (let i = 0; i < 5; i++) {
       randomCards.push(`${deck[i].Value} of ${deck[i].Suit}`);
     }
-  }
 
-  return randomCards.join(", <br />");
+    deckSize = deckSize - 5;
+    return randomCards.join(", <br />");
+  } else {
+    return "Less Cards";
+  }
 };
+
+//will have to reduce the size of the deck by the number of cards displayed each time
+//eg:- 51 - 5 = 46 | 46-5 = 41 | 41-5 = 36

@@ -1,5 +1,3 @@
-// include("./content/scripts/output/output.js");
-
 const init = () => {
   // Task 1 variables
   let calcAgeInDaysBtn = document.getElementById("calcAgeInDaysBtn");
@@ -73,7 +71,9 @@ const init = () => {
   let getLargestPalindromeBtn = document.getElementById(
     "getLargestPalindromeBtn"
   );
-  getLargestPalindromeBtn.addEventListener("click", () => findLargestPalindrome());
+  getLargestPalindromeBtn.addEventListener("click", () =>
+    findLargestPalindrome()
+  );
 
   //Task 16 variable
   let getIngBtn = document.getElementById("getIngBtn");
@@ -140,23 +140,21 @@ const init = () => {
 };
 
 const jsonFormatInput = (jsonInpt) => {
-  let jsonFormatValRes = validtJsonObject(jsonInpt.value.replace(/{^,\{\}a-zA-Z ]/g, ""));
- // if the array input doesnt have invalid class
- if (jsonFormatValRes) {
+  let jsonFormatValRes = validtJsonObject(
+    jsonInpt.value.replace(/{^,\{\}a-zA-Z ]/g, "")
+  );
+  // if the array input doesnt have invalid class
+  if (jsonFormatValRes) {
     jsonInpt.classList.add("invalid");
-    document.getElementById(
-      jsonInpt.getAttribute("id") + "Error"
-    ).textContent = "Please enter object correctly e.g {key:value, key:value}";
-} else {
-  jsonInpt.classList.remove("invalid");
-  document.getElementById(
-    jsonInpt.getAttribute("id") + "Error"
-  ).textContent = "";
-}
-enableBtn(
-  document.getElementById(jsonInpt.getAttribute("data-target"))
-);
-}
+    document.getElementById(jsonInpt.getAttribute("id") + "Error").textContent =
+      "Please enter object correctly e.g {key:value, key:value}";
+  } else {
+    jsonInpt.classList.remove("invalid");
+    document.getElementById(jsonInpt.getAttribute("id") + "Error").textContent =
+      "";
+  }
+  enableBtn(document.getElementById(jsonInpt.getAttribute("data-target")));
+};
 
 const globalNumInputs = (numInput) => {
   numInput.value = numInput.value.replace(/[^0-9]/g, "");
@@ -166,19 +164,16 @@ const globalNumInputs = (numInput) => {
 const globalStringInputs = (stringInput) => {
   stringInput.value = stringInput.value.replace(/[^a-zA-Z ]/g, "");
   enableBtn(document.getElementById(stringInput.getAttribute("data-target")));
-}
+};
 
 // function to show the validation messages for array input fields
 const globalNumArrayInputs = (numArrayInput) => {
   numArrayInput.value = numArrayInput.value.replace(/[^,\[\]0-9]/g, "");
 
   // validtNumArray validates array input values
-  let numArrValRes = validtNumArray(
-    numArrayInput.value
-  );
+  let numArrValRes = validtNumArray(numArrayInput.value);
 
-  globalArrayValidationCheck('num',numArrayInput,numArrValRes);
-
+  globalArrayValidationCheck("num", numArrayInput, numArrValRes);
 };
 
 // function to show the validation messages for array input fields
@@ -186,27 +181,25 @@ const globalNumWithNegArrayInputs = (numArrayInput) => {
   numArrayInput.value = numArrayInput.value.replace(/[^,[\-\]\[\]0-9]/g, "");
 
   // validtNumArray validates array input values
-  let numArrValRes = validtNumArray(
-    numArrayInput.value
-  );
+  let numArrValRes = validtNumArray(numArrayInput.value);
 
-  globalArrayValidationCheck('num',numArrayInput,numArrValRes);
-
+  globalArrayValidationCheck("num", numArrayInput, numArrValRes);
 };
 
 // function to show the validation messages for array input fields
 const stringArrayInputs = (stringArrayInput) => {
-  stringArrayInput.value = stringArrayInput.value.replace(/[^,\[\]a-zA-Z ]/g, "");
-
-  // validtNumArray validates array input values
-  let stringArrValRes = validtStringArray(
-    stringArrayInput.value
+  stringArrayInput.value = stringArrayInput.value.replace(
+    /[^,\[\]a-zA-Z ]/g,
+    ""
   );
 
-  globalArrayValidationCheck('str',stringArrayInput,stringArrValRes);
+  // validtNumArray validates array input values
+  let stringArrValRes = validtStringArray(stringArrayInput.value);
+
+  globalArrayValidationCheck("str", stringArrayInput, stringArrValRes);
 };
 
-function globalArrayValidationCheck(arrayType,arrayInput, numValrs) {
+function globalArrayValidationCheck(arrayType, arrayInput, numValrs) {
   // if the array input doesnt have invalid class
   if (numValrs) {
     if (numValrs == INVALID) {
@@ -214,7 +207,9 @@ function globalArrayValidationCheck(arrayType,arrayInput, numValrs) {
       document.getElementById(
         arrayInput.getAttribute("id") + "Error"
       ).textContent =
-      arrayType == 'num'? "Please enter array correctly in square brackets e.g [1,2,3]" : "Please enter names correctly in square brackets e.g [First Last,First Middle Last] (do not add spacing before or after comma)";
+        arrayType == "num"
+          ? "Please enter array correctly in square brackets e.g [1,2,3]"
+          : "Please enter names correctly in square brackets e.g [First Last,First Middle Last] (do not add spacing before or after comma)";
     } else if (numValrs == SHORT) {
       document.getElementById(
         arrayInput.getAttribute("id") + "Error"
@@ -234,9 +229,7 @@ function globalArrayValidationCheck(arrayType,arrayInput, numValrs) {
       arrayInput.getAttribute("id") + "Error"
     ).textContent = "";
   }
-  enableBtn(
-    document.getElementById(arrayInput.getAttribute("data-target"))
-  );
+  enableBtn(document.getElementById(arrayInput.getAttribute("data-target")));
 }
 
 // Task 1 :Calculate Age in Days
@@ -270,11 +263,11 @@ const getCube = () => {
   let val = document.getElementById("getCube").value;
   let cubeResValue = cubes(val);
 
-    output(
-      "task3AlertWrapper",
-      "alert-info",
-      `Cube of ${val} is <u>${cubeResValue}</u>`
-    );
+  output(
+    "task3AlertWrapper",
+    "alert-info",
+    `Cube of ${val} is <u>${cubeResValue}</u>`
+  );
 };
 
 // Task 4 : Reversing a String
@@ -289,7 +282,12 @@ const revStr = () => {
 
 // Task 5 : Sum of 2 Numbers
 const sumOf2Numbers = () => {
-  let arrVal = document.getElementById("sumOf2NumInput").value.toString().replace("[", "").replace("]", "").split(",");
+  let arrVal = document
+    .getElementById("sumOf2NumInput")
+    .value.toString()
+    .replace("[", "")
+    .replace("]", "")
+    .split(",");
   let targetVal = parseInt(document.getElementById("sumTarget").value);
 
   let indexVal = sumOf(arrVal, targetVal);
@@ -323,12 +321,15 @@ const calcSecsInHours = () => {
 // Task 7 : Create a deck of Cards
 const genertRanCards = () => {
   let generatedCards = Deal();
-  if (generatedCards) {
+  console.log(`generateCards = ${generatedCards}`);
+  if (generatedCards && generatedCards != "Less Cards") {
     output("task7AlertWrapper", "alert-info", `[${generatedCards}]`);
+  } else if (generatedCards == "Less Cards") {
+    output("task7AlertWrapper", "alert-danger", "Deck has less than 5 cards");
   } else {
     output("task7AlertWrapper", "alert-danger", "Error while generating cards");
   }
-}
+};
 
 // Task 8 : Number exists in array
 const numExist = () => {
@@ -375,34 +376,45 @@ const numExist = () => {
 
 // Task 9: Analyze String
 let analyzStr = () => {
-  let analyzStrInpt = document.getElementById("task9Input");
-  let charCount = analyzeString(analyzStrInpt.value);
+  let analyzStrInpt = document.getElementById("task9Input").value;
+  let charCount = analyzeString(analyzStrInpt);
   if (charCount) {
     output("task9AlertWrapper", "alert-info", charCount);
   } else {
-    output("task9AlertWrapper", "alert-danger", "Error while generating result");
+    output(
+      "task9AlertWrapper",
+      "alert-danger",
+      "Error while generating result"
+    );
   }
-}
+};
 
 // Task 10 : Analyze JSON
 let analyzJson = () => {
-  let analyzJsonInpt = document.getElementById("task10Input");
-  let keyRes = analyzeJson(analyzJsonInpt.value);
+  let analyzJsonInpt = document
+    .getElementById("task10Input")
+    .value.replace("{", "")
+    .replace("}", "")
+    .split(",");
+  let keyRes = analyzeJson(analyzJsonInpt);
   if (keyRes) {
     output("task10AlertWrapper", "alert-info", keyRes);
   } else {
-    output("task10AlertWrapper", "alert-danger", "Error while generating result");
+    output(
+      "task10AlertWrapper",
+      "alert-danger",
+      "Error while generating result"
+    );
   }
-}
+};
 
 // Task 11 : Equilibrium
 const equilib = () => {
-  
   let arrVal = document
-  .getElementById("task11Input")
-  .value.replace(/\[/g, "")
-  .replace(/\]/g, "")
-  .split(",");
+    .getElementById("task11Input")
+    .value.replace(/\[/g, "")
+    .replace(/\]/g, "")
+    .split(",");
 
   let equilibRes = solution(arrVal);
 
@@ -411,50 +423,53 @@ const equilib = () => {
   } else {
     output("task11AlertWrapper", "alert-danger", equilibRes);
   }
-}
+};
 
 // Task 12 : Format Date
 const dateFormat = () => {
   let newDateFormat = formatDate(document.getElementById("task12Input").value);
   if (newDateFormat) {
-    output(
-      "task12AlertWrapper",
-      "alert-info",
-      newDateFormat
-    );
+    output("task12AlertWrapper", "alert-info", newDateFormat);
   } else {
     output("task12AlertWrapper", "alert-danger", "Connot format date");
   }
-}
+};
 
 //Task 13 : Sentence Value
 const sentenceVal = () => {
   let sentence = document.getElementById("task13Input").value;
-  let sentenceValCnt =  sentenceValCount(sentence);
+  let sentenceValCnt = sentenceValCount(sentence);
   if (sentenceValCnt) {
-    output("task13AlertWrapper", "alert-info", `Value of '${sentence}' is ${sentenceValCnt}`);
+    output(
+      "task13AlertWrapper",
+      "alert-info",
+      `Value of '${sentence}' is ${sentenceValCnt}`
+    );
   } else {
     output("task13AlertWrapper", "alert-danger", "No value found");
   }
-}
+};
 
 //Task 14 : Analyze Student Names
 const duplicateNames = () => {
+  let namesArray = document
+    .getElementById("task14Input")
+    .value.replace(/\[/g, "")
+    .replace(/\]/g, "")
+    .split(",");
 
-  let namesArray =  document
-  .getElementById("task14Input")
-  .value.replace(/\[/g, "")
-  .replace(/\]/g, "")
-  .split(",");
-  
-  let duplicateSubNams = JSON.stringify(analyzeStudentNames(namesArray));
+  let duplicateSubNams = analyzeName(namesArray);
 
   if (duplicateSubNams) {
     output("task14AlertWrapper", "alert-info", duplicateSubNams);
   } else {
-    output("task14AlertWrapper", "alert-danger", "Error while fetching the result");
+    output(
+      "task14AlertWrapper",
+      "alert-danger",
+      "Error while fetching the result"
+    );
   }
-}
+};
 
 //Task 15 :Largest Palindrome Product
 const findLargestPalindrome = () => {
@@ -462,24 +477,26 @@ const findLargestPalindrome = () => {
   if (largstPalindrome) {
     output("task15AlertWrapper", "alert-info", largstPalindrome);
   } else {
-    output("task15AlertWrapper", "alert-danger", "Error while fetching the result");
+    output(
+      "task15AlertWrapper",
+      "alert-danger",
+      "Error while fetching the result"
+    );
   }
-}
+};
 
 //Task 16: Extracting words with "ing" Inflection
 const extrIngInflection = () => {
-  let ingEnflectedWords = extractWordsWithIngInflection(document.getElementById("task16Input").value);
+  let ingEnflectedWords = extractWordsWithIngInflection(
+    document.getElementById("task16Input").value
+  );
 
   if (ingEnflectedWords) {
-    output(
-      "task16AlertWrapper",
-      "alert-info",
-      `[${ingEnflectedWords}]`
-    );
+    output("task16AlertWrapper", "alert-info", `[${ingEnflectedWords}]`);
   } else {
     output("task16AlertWrapper", "alert-danger", "No words found");
   }
-}
+};
 
 // onload execute init function
 window.onload = () => {
@@ -489,9 +506,15 @@ window.onload = () => {
 // output ui
 const output = (alertID, alertType, outputMessage) => {
   document.getElementById(alertID).innerHTML = `
-  <div class="alert ${alertType} show fade ${alertID.replace("Wrapper", "")} mt-4 mb-2" role="alert">
+  <div class="alert ${alertType} show fade ${alertID.replace(
+    "Wrapper",
+    ""
+  )} mt-4 mb-2" role="alert">
   <strong>${outputMessage}</strong>
-  <button type="button" class="close" id="${alertID.replace("Wrapper", "")}" aria-label="Close">
+  <button type="button" class="close" id="${alertID.replace(
+    "Wrapper",
+    ""
+  )}" aria-label="Close">
     &times;
   </button>
   </div>`;
